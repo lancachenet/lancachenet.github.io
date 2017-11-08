@@ -74,7 +74,7 @@ docker run --name steamcache-dns -p 53:53/udp -e STEAMCACHE_IP=<span class="pl-s
 
 <div class="highlight highlight-source-shell"><pre>docker run --name steamcache-dns -p 53:53/udp -e STEAMCACHE_IP=111.111.111.111 steamcache/steamcache-dns</pre></div>
 
-<p>Now anyone using this DNS server will have their steam traffic severed by the cache.</p>
+<p>Now anyone using this DNS server will have their steam traffic served by the cache.</p>
 </li>
 <li><p>Change your DHCP server to give out the IP address of the steamcache DNS container as primary DNS</p></li>
 </ol>
