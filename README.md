@@ -1,4 +1,4 @@
 
-Content for the steamcache.net website
+Content for the lancache.net website
 
-www.steamcache.net
+www.lancache.net
