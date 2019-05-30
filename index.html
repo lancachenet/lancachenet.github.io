@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="SteamCache.Net : ">
+    <meta name="description" content="LanCache.Net : ">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>SteamCache.Net</title>
+    <title>LanCache.Net</title>
   </head>
 
   <body>
@@ -16,9 +16,9 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/steamcache">View on GitHub</a>
+          <a id="forkme_banner" href="https://github.com/lancachenet">View on GitHub</a>
 
-          <h1 id="project_title">SteamCache.Net</h1>
+          <h1 id="project_title">LanCache.Net</h1>
           <h2 id="project_tagline"></h2>
 
         </header>
@@ -28,12 +28,12 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a id="steamcachenet" class="anchor" href="#steamcachenet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SteamCache.Net</h1>
+<a id="lancachenet" class="anchor" href="#lancachenet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LanCache.Net</h1>
 
-<p>SteamCache.Net provides the ability to reduce your Internet bandwidth consumption in scenarios where you have multiple PC gamers sharing the same Internet connection. Through the use of easy to deploy docker containers we aim to make it easy for you to get a local cache of steam's content servers up and running quickly.</p>
+<p>LanCache.Net provides the ability to reduce your Internet bandwidth consumption in scenarios where you have multiple PC gamers sharing the same Internet connection. Through the use of easy to deploy docker containers we aim to make it easy for you to get a local cache of steam's content servers up and running quickly.</p>
 
 <p>The primary use case is gaming events, such as LAN parties, which need to be able to cope with hundreds or thousands of computers receiving an unannounced patch - without spending a fortune on internet connectivity. Other uses include smaller networks, such as Internet Cafes and home networks, where new games are regularly installed on multiple computers; or multiple independent operating systems on the same computer.</p>
-<p>Originally designed as a caching solution purely for steam our latest docker image<a href="https://hub.docker.com/r/steamcache/monolithic">steamcache/monolithic</a> handles caching for a wide variety of gaming cdns (Steam, Blizzard, Origin to name a few) in one single easy to use docker container. Power users may prefer <a href="https://hub.docker.com/r/steamcache/generic">steamcache/generic</a> which is designed as a base for multiple instance, single cdn caches.</p>
+<p>Originally designed as a caching solution purely for steam our latest docker image<a href="https://hub.docker.com/r/lancache/monolithic">lancache/monolithic</a> handles caching for a wide variety of gaming cdns (Steam, Blizzard, Origin to name a few) in one single easy to use docker container. Power users may prefer <a href="https://hub.docker.com/r/lancache/generic">lancache/generic</a> which is designed as a base for multiple instance, single cdn caches.</p>
 <h2>
 <a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prerequisites</h2>
 
@@ -54,44 +54,44 @@
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 <p>As a quick "get started and go" run the following commands to bring up both a lancache server and a dns container and then configure your router/dhcp server to provide the IP of your lancache server as the dns server for the network</p>
 <pre><code>export LANCACHE_IP=`hostname -I | cut -d' ' -f1`
-docker run --restart unless-stopped --name lancache -v /cache/data:/data/cache -v /cache/logs:/data/logs -p 80:80 steamcache/monolithic:latest
-docker run --restart unless-stopped --name lancache-dns -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=$LANCACHE_IP steamcache/steamcache-dns:latest
-docker run --restart unless-stopped --name lancache-sniproxy -p 443:443 steamcache/sniproxy:latest
+docker run --restart unless-stopped --name lancache -v /cache/data:/data/cache -v /cache/logs:/data/logs -p 80:80 lancache/monolithic:latest
+docker run --restart unless-stopped --name steamcache-dns -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=$LANCACHE_IP lancache/steamcache-dns:latest
+docker run --restart unless-stopped --name steamcache-sniproxy -p 443:443 lancache/sniproxy:latest
 echo Please configure your dhcp server to serve dns as $HOST_IP
 </code></pre>
 
 <p>For a more detailed guide, follow the below instead or check the readme's linked</p>
 <ol>
 <li>
-  <p>Run the <a href="https://github.com/steamcache/monolithic">lancache</a> reverse proxy container</p>
+  <p>Run the <a href="https://github.com/lancache/monolithic">lancache</a> reverse proxy container</p>
 
-<pre><code>docker run --restart unless-stopped --name lancache -v /cache/data:/data/cache -v /cache/logs:/data/logs -p 80:80 steamcache/monolithic:latest
+<pre><code>docker run --restart unless-stopped --name lancache -v /cache/data:/data/cache -v /cache/logs:/data/logs -p 80:80 lancache/monolithic:latest
 </code></pre>
 
 <p>Note that this container requires the use of port 80 and so may not be run on the same machine as some other website. A dedicated caching server is recommended.</p>
 </li>
 <li>
-<p>Run the <a href="https://github.com/steamcache/steamcache-dns">steamcache DNS</a> server container</p>
+<p>Run the <a href="https://github.com/lancache/steamcache-dns">steamcache DNS</a> server container</p>
 
 <p>When starting this container you need to pass in the IP address which the reverse proxy container is running on. Assuming that you're running both containers on the same machine then this will just be the IP address of that machine. This command looks up that IP and then starts the container using it.</p>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span> LANCACHE_IP=<span class="pl-s"><span class="pl-pds">`</span>hostname -I <span class="pl-k">|</span> head -n 1<span class="pl-pds">`</span></span><span class="pl-k">;</span>
-docker run --restart unless-stopped --name lancache-dns -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=<span class="pl-smi">$LANCACHE_IP</span> steamcache/steamcache-dns:latest
+docker run --restart unless-stopped --name steamcache-dns -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=<span class="pl-smi">$LANCACHE_IP</span> lancache/steamcache-dns:latest
 </pre></div>
 
 <p>If you want to specify the IP then just place it in the run command like</p>
 
-<div class="highlight highlight-source-shell"><pre>docker run --restart unless-stopped --name lancache-dns -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=111.111.111.111 steamcache/steamcache-dns:latest</pre></div>
+<div class="highlight highlight-source-shell"><pre>docker run --restart unless-stopped --name steamcache-dns -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=111.111.111.111 lancache/steamcache-dns:latest</pre></div>
 
 <p>Now anyone using this DNS server will have their steam traffic served by the cache.</p>
 </li>
-<li><p>Start the <a href="https://github.com/steamcache/sniproxy">sniproxy</a> container<p>
+<li><p>Start the <a href="https://github.com/lancache/sniproxy">sniproxy</a> container<p>
 <p>An increasing number of game providers are serving https traffic on the same endpoint as http, to ensure we don't break this secure traffic we need a sniproxy instance<p>
-<pre><code>docker run --restart unless-stopped --name lancache-sniproxy -p 443:443 steamcache/sniproxy:latest
+<pre><code>docker run --restart unless-stopped --name steamcache-sniproxy -p 443:443 lancache/sniproxy:latest
 </code></pre>
 
 </li>
-<li><p>Change your DHCP server to give out the IP address of the steamcache DNS container as primary DNS</p></li>
+<li><p>Change your DHCP server to give out the IP address of the lancache DNS container as primary DNS</p></li>
 </ol>
 
 <p>Now, as people join your network they will automatically be configured to use the lancache (unless they've chosen to override DNS on their local PC).</p>
