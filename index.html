@@ -33,7 +33,7 @@
 <p>LanCache.Net provides the ability to reduce your Internet bandwidth consumption in scenarios where you have multiple PC gamers sharing the same Internet connection. Through the use of easy to deploy docker containers we aim to make it easy for you to get a local cache of steam's content servers up and running quickly.</p>
 
 <p>The primary use case is gaming events, such as LAN parties, which need to be able to cope with hundreds or thousands of computers receiving an unannounced patch - without spending a fortune on internet connectivity. Other uses include smaller networks, such as Internet Cafes and home networks, where new games are regularly installed on multiple computers; or multiple independent operating systems on the same computer.</p>
-<p>Originally designed as a caching solution purely for steam our latest docker image<a href="https://hub.docker.com/r/lancache/monolithic">lancache/monolithic</a> handles caching for a wide variety of gaming cdns (Steam, Blizzard, Origin to name a few) in one single easy to use docker container. Power users may prefer <a href="https://hub.docker.com/r/lancache/generic">lancache/generic</a> which is designed as a base for multiple instance, single cdn caches.</p>
+<p>Originally designed as a caching solution purely for steam our latest docker image<a href="https://hub.docker.com/r/lancachenet/monolithic">lancachenet/monolithic</a> handles caching for a wide variety of gaming cdns (Steam, Blizzard, Origin to name a few) in one single easy to use docker container. Power users may prefer <a href="https://hub.docker.com/r/lancachenet/generic">lancachenet/generic</a> which is designed as a base for multiple instance, single cdn caches.</p>
 <h2>
 <a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prerequisites</h2>
 
@@ -54,9 +54,9 @@
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 <p>As a quick "get started and go" run the following commands to bring up both a lancache server and a dns container and then configure your router/dhcp server to provide the IP of your lancache server as the dns server for the network</p>
 <pre><code>export LANCACHE_IP=`hostname -I | cut -d' ' -f1`
-docker run --restart unless-stopped --name lancache -v /cache/data:/data/cache -v /cache/logs:/data/logs -p 80:80 lancache/monolithic:latest
-docker run --restart unless-stopped --name lancache-dns -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=$LANCACHE_IP lancache/lancache-dns:latest
-docker run --restart unless-stopped --name lancache-sniproxy -p 443:443 lancache/sniproxy:latest
+docker run --restart unless-stopped --name lancache -v /cache/data:/data/cache -v /cache/logs:/data/logs -p 80:80 lancachenet/monolithic:latest
+docker run --restart unless-stopped --name lancache-dns -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=$LANCACHE_IP lancachenet/lancache-dns:latest
+docker run --restart unless-stopped --name lancache-sniproxy -p 443:443 lancachenet/sniproxy:latest
 echo Please configure your dhcp server to serve dns as $HOST_IP
 </code></pre>
 
