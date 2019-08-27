@@ -66,7 +66,7 @@ echo Please configure your dhcp server to serve dns as $HOST_IP
 <li>
   <p>Run the <a href="https://github.com/lancachenet/monolithic">lancache</a> reverse proxy container</p>
 
-<pre><code>docker run --restart unless-stopped --name lancache -v /cache/data:/data/cache -v /cache/logs:/data/logs -p 80:80 lancache/monolithic:latest
+<pre><code>docker run --restart unless-stopped --name lancache -v /cache/data:/data/cache -v /cache/logs:/data/logs -p 80:80 lancachenet/monolithic:latest
 </code></pre>
 
 <p>Note that this container requires the use of port 80 and so may not be run on the same machine as some other website. A dedicated caching server is recommended.</p>
@@ -77,18 +77,18 @@ echo Please configure your dhcp server to serve dns as $HOST_IP
 <p>When starting this container you need to pass in the IP address which the reverse proxy container is running on. Assuming that you're running both containers on the same machine then this will just be the IP address of that machine. This command looks up that IP and then starts the container using it.</p>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span> LANCACHE_IP=<span class="pl-s"><span class="pl-pds">`</span>hostname -I <span class="pl-k">|</span> head -n 1<span class="pl-pds">`</span></span><span class="pl-k">;</span>
-docker run --restart unless-stopped --name lancache-dns -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=<span class="pl-smi">$LANCACHE_IP</span> lancache/lancache-dns:latest
+docker run --restart unless-stopped --name lancache-dns -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=<span class="pl-smi">$LANCACHE_IP</span> lancachenet/lancache-dns:latest
 </pre></div>
 
 <p>If you want to specify the IP then just place it in the run command like</p>
 
-<div class="highlight highlight-source-shell"><pre>docker run --restart unless-stopped --name lancache-dns -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=111.111.111.111 lancache/lancache-dns:latest</pre></div>
+<div class="highlight highlight-source-shell"><pre>docker run --restart unless-stopped --name lancache-dns -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=111.111.111.111 lancachenet/lancache-dns:latest</pre></div>
 
 <p>Now anyone using this DNS server will have their steam traffic served by the cache.</p>
 </li>
 <li><p>Start the <a href="https://github.com/lancachenet/sniproxy">sniproxy</a> container<p>
 <p>An increasing number of game providers are serving https traffic on the same endpoint as http, to ensure we don't break this secure traffic we need a sniproxy instance<p>
-<pre><code>docker run --restart unless-stopped --name lancache-sniproxy -p 443:443 lancache/sniproxy:latest
+<pre><code>docker run --restart unless-stopped --name lancache-sniproxy -p 443:443 lancachenet/sniproxy:latest
 </code></pre>
 
 </li>
