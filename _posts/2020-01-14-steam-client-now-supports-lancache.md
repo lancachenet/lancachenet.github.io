@@ -5,7 +5,7 @@ author: mintopia
 version: steam
 categories: [cdn,release]
 ---
-Hi everyone, I'm one of the maintainers of lancache and we have some great news that some of you may have already seen.
+Hi everyone, We have some great news that some of you may have already seen.
 
 As of today's Steam Client update, there is now full support in Steam for a lancache. The way it works is by setting a DNS override for lancache.steamcontent.com pointing to the IP address of your cache server. The cache domains list at uklans/cache-domains has already been updated to include this and if you redeploy lancachenet/monolithic and lancachenet/lancache-dns containers, it will pick up the new hostname and work.
 
