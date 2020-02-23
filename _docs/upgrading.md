@@ -13,7 +13,7 @@ permalink: /docs/upgrading/
 
 ## Minor Updates
 
-If you followed our setup recommendations and installed [docker-compose](http://bundler.io/), run `docker-compose pull` to update the containers and then `docker-compose restart` to update to the latest versions.
+If you followed our setup recommendations and installed [docker-compose](http://bundler.io/), run `docker-compose pull` to update the containers and then `docker-compose up -d` to update to the latest versions.
 
 If you are using docker directly you will need to destroy and recreate your containers after repulling the latest image (See [docker-101](/docs/docker-101)).
 

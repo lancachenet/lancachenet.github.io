@@ -46,3 +46,7 @@ If you have a Linux machine that already has Docker pre-installed, please just r
 
 
 This should bring up a fully functional LanCache and DNS container, and an SNI Proxy to handle passthrough of https traffic.
+
+## More Detail
+
+If you want to play with advanced installation and further configuration options we recommend starting with the [Installation](/docs/installation/) page.

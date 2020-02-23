@@ -6,8 +6,8 @@ permalink: /team/
 
 ## Core Team
 
-_The Jekyll Core Team's responsibility is to ensure the development and
-community around the Jekyll ecosystem thrive._
+_The Core Team's responsibility is to ensure the development and
+community around the ecosystem thrive._
 
 * James "VibroAxe" Kinsman (@vibroaxe)
 * Jess "Mintopia" Smith (@mintopia)
@@ -16,6 +16,7 @@ community around the Jekyll ecosystem thrive._
 * Mathew "Proto" Burnett (@mathewburnett)
 * Barry "Lepidopterist" Zubel (@lepidopterist)
 * Brian "Astrolox" (@astrolox)
+* Michael "Unspec" Taylor (@unspec)
 
 ## Special Mentions
 

@@ -34,9 +34,14 @@
   docs:
     - link: /docs/containers/sniproxy/
     - link: /docs/containers/sniproxy/variables/
+#- title: Generic
+#  docs:
+#    - link: /docs/containers/generic/
+#    - link: /docs/containers/generic/variables/
 - title: Advanced
   docs:
-    - link: /docs/advanced/rancher/
     - link: /docs/advanced/dns/
     - link: /docs/advanced/cdn-capture/
     - link: /docs/advanced/tuning-cache/
+    - link: /docs/advanced/rancher/
+    - link: /docs/advanced/squid/
