@@ -10,8 +10,8 @@ The best and quickest way is to get started with lancache.net is to use the [qui
 
 ## Requirements
 
-* [Ubuntu](https://www.ubuntu.com)
-* [Docker](https://www.ruby-lang.org/en/downloads/)
+* A modern Linux distribution supporting Docker, eg [Ubuntu](https://www.ubuntu.com) or [CentOS](https://www.centos.org/)
+* [Docker](https://www.docker.com/)
 
 ## Guides
 
