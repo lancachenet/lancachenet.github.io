@@ -3,6 +3,10 @@ title: Common Issues
 permalink: "/docs/common-issues/"
 ---
 
+## Introduction
+
+There are several issues that frequently crop up when deploying lancache. Here is the information on how to handle them if they happen to you.
+
 ## Disabling `systemd-resolved` DNSStubListener
 
 If your cache host is running a recent Linux distribution, it is likely running `systemd-resolved`, which listens on port `53`. If you want your cache host to bind to `0.0.0.0:53` (INADDR_ANY, all IPv4 addresses), you will first need to disable `systemd-resolved`'s stub listener.

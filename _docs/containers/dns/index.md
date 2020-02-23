@@ -8,13 +8,14 @@ permalink: /docs/containers/dns/
 
 This docker container provides DNS entries for caching services to be used in conjunction with a  container.
 
-The DNS is generated automatically at startup of the container, the list of supported services is available here: https://github.com/uklans/cache-domains
+The DNS is generated automatically at startup of the container, the list of supported services is available [here](https://github.com/uklans/cache-domains)
 
 The primary use case is gaming events, such as LAN parties, which need to be able to cope with hundreds or thousands of computers receiving an unannounced patch - without spending a fortune on internet connectivity. Other uses include smaller networks, such as Internet Cafes and home networks, where the new games are regularly installed on multiple computers; or multiple independent operating systems on the same computer.
 
 ## Quick Explanation
 
 For a LAN cache to function on your network you need two services.
+
 * A depot cache service e.g [monolithic](/docs/containers/monolithic/)
 * A special DNS service e.g this container
 
@@ -33,7 +34,8 @@ Run the lancache-dns container using the following to allow UDP port 53 (DNS) th
 docker run --name lancache-dns -p 10.0.0.2:53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=10.0.0.3 lancachenet/lancache-dns:latest
 ```
 
-You can specify a different IP for each service hosted within the cache for a full list os supported services have a look at https://github.com/uklans/cache-domains. Set the IP for a service using ${SERVICE}CACHE_IP environment:
+You can specify a different IP for each service hosted within the cache for a full list os supported services have a look at [uklans/cachedomains](https://github.com/uklans/cache-domains). Set the IP for a service using ${SERVICE}CACHE_IP environment:
+
 ```
 LANCACHE_IP (requires USE_GENERIC_CACHE to be set to true)
 
@@ -46,6 +48,7 @@ UPLAYCACHE_IP
 ```
 
 You can also disable any of the cache dns resolvers by setting the environment variable of DISABLE_${SERVICE}=true
+
 ```
 DISABLE_BLIZZARD
 DISABLE_RIOT
@@ -74,9 +77,11 @@ Follow the instructions in the Docker documentation to run the container at star
 ## Custom Forks/Branches
 
 If you have your own fork (or branch) forked from [uklans/cache-domains](https://github.com/uklans/cache-domains) and would like to use your own for testing purposes (before pushing it to the main branch) or cache from unofficially supported domains, then declare it with `CACHE_DOMAINS_REPO` including the full .git URL for your fork, for example:
+
 ```
 docker run --name lancache-dns -p 10.0.0.2:53:53/udp -e CACHE_DOMAINS_REPO="https://github.com/your-username/cache-domains.git" lancache/lancache-dns:latest
 ```
+
 which would use the cache domains from https://github.com/your-username/cache-domains.git
 
 Should you wish to run a custom branch you can also specify `-e CACHE_DOMAINS_BRANCH="branch-name"`

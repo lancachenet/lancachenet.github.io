@@ -10,11 +10,11 @@ When running a LAN Cache and overriding DNS entries, there are some services (in
 
 The solution is to run SNI Proxy on all IP addresses on the LAN Cache server. This accepts the HTTPS requests, looks at the host being requested and sends the request on to the correct server.
 
-## Why do I need an SNI Proxy?
+## Why do I need an SNI Proxy
 
 SNI Proxy allows hostnames that serve BOTH http and https content to be overridden and pointed to your cache server. Traffic going to that hostname on port 80 (http) will hit the cache container and be cached, whilst traffic on port 443 (https) is passed straight through to the internet by the SNI Proxy container.
 
-### Can SNI Proxy cache encrypted traffic?
+### Can SNI Proxy cache encrypted traffic
 
 It does NOT allow https / encrypted content to be inspected or cached - merely ensure that it is passed straight through to the internet to avoid breaking anything whilst allow us to cache the HTTP traffic from that same hostname.
 
