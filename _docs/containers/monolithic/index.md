@@ -32,7 +32,7 @@ For the cache files to persist you will need to mount a directory on the host ma
 
 Run the container using the following to allow TCP port 80 (HTTP) and to mount `/cache/data` directory into the container.
 
-```
+```sh
 docker run \
   --restart unless-stopped \
   --name lancache \

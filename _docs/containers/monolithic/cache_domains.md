@@ -14,13 +14,13 @@ Whilst lancache (monolithic and lancache-dns) includes this list by default, you
 
 If you have your own fork (or branch) forked from [uklans/cache-domains](https://github.com/uklans/cache-domains) and would like to use it for testing purposes (before pushing it to the main branch) or cache from unofficially supported domains, then declare it with `CACHE_DOMAINS_REPO` including the full .git URL for your fork, for example:
 
-```
+```sh
 docker run --restart unless-stopped --name lancache-dns --detach -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=$HOST_IP -e CACHE_DOMAINS_REPO="https://github.com/your-username/cache-domains.git" lancachenet/lancache-dns:latest
 ```
 
 and
 
-```
+```sh
 docker run --restart unless-stopped --name lancache --detach -v /cache/data:/data/cache -v /cache/logs:/data/logs -p 80:80 -e CACHE_DOMAINS_REPO="https://github.com/your-username/cache-domains.git" lancachenet/monolithic:latest
 ```
 

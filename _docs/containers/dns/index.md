@@ -30,7 +30,7 @@ In this case it is highly recommended that you use some form of load balancer or
 
 Run the lancache-dns container using the following to allow UDP port 53 (DNS) through the host machine:
 
-```
+```sh
 docker run --name lancache-dns -p 10.0.0.2:53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=10.0.0.3 lancachenet/lancache-dns:latest
 ```
 
@@ -58,7 +58,7 @@ DISABLE_UPLAY
 
 To use a custom upstream DNS server, use the `UPSTREAM_DNS` variable:
 
-```
+```sh
 docker run --name lancache-dns -p 10.0.0.2:53:53/udp -e STEAMCACHE_IP=10.0.0.3 -e UPSTREAM_DNS=8.8.8.8 lancachenet/lancache-dns:latest
 ```
 

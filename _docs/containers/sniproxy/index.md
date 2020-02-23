@@ -22,7 +22,7 @@ It does NOT allow https / encrypted content to be inspected or cached - merely e
 
 Run the proxy container using the following to allow TCP port 443 (HTTPS) through the host machine:
 
-```
+```sh
 docker run --name sniproxy -p 443:443 lancachenet/sniproxy:latest
 ```
 
