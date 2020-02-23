@@ -20,6 +20,7 @@
     - link: /docs/caching-101/
     - link: /docs/containers/
     - link: /docs/upgrading/
+    - link: /docs/hardware/
 - title: Monolithic
   docs:
     - link: /docs/containers/monolithic/
