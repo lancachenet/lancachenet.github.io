@@ -1,24 +1,18 @@
 #
-# Needs updating for lancache
-#
-#
-#
-#
 
 - title: Getting Started
   docs:
     - link: /docs/
     - link: /docs/installation/
-    - link: /docs/step-by-step/01-setup/
+#    - link: /docs/step-by-step/01-setup/
     - link: /docs/faq/
     - link: /docs/support/
 - title: Beyond the Basics
   docs:
-    - link: /docs/usage/
-    - link: /docs/docker-101/
+#    - link: /docs/docker-101/
     - link: /docs/configuration/
-    - link: /docs/caching-101/
-    - link: /docs/containers/
+#    - link: /docs/caching-101/
+#    - link: /docs/containers/
     - link: /docs/upgrading/
     - link: /docs/hardware/
 - title: Monolithic
@@ -40,8 +34,8 @@
 #    - link: /docs/containers/generic/variables/
 - title: Advanced
   docs:
-    - link: /docs/advanced/dns/
-    - link: /docs/advanced/cdn-capture/
+#    - link: /docs/advanced/dns/
+#    - link: /docs/advanced/cdn-capture/
     - link: /docs/advanced/tuning-cache/
-    - link: /docs/advanced/rancher/
-    - link: /docs/advanced/squid/
+#    - link: /docs/advanced/rancher/
+#    - link: /docs/advanced/squid/

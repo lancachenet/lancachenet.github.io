@@ -101,7 +101,7 @@ If you have mounted the volume externally then you can tail it on the host inste
 
 ## Custom Forks/Branches
 
-See [cache_domains](docs/containers/monolithic/cache_domains.md) for details on how to use a none standard list of hostnames for this container.
+See [cache_domains](/docs/containers/monolithic/cache_domains/) for details on how to use a non-standard list of hostnames for this container.
 
 ## Thanks
 
