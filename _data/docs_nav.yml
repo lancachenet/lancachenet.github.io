@@ -9,10 +9,9 @@
     - link: /docs/support/
 - title: Beyond the Basics
   docs:
-#    - link: /docs/usage/
-    - link: /docs/docker-101/
+#    - link: /docs/docker-101/
     - link: /docs/configuration/
-    - link: /docs/caching-101/
+#    - link: /docs/caching-101/
 #    - link: /docs/containers/
     - link: /docs/upgrading/
     - link: /docs/hardware/
