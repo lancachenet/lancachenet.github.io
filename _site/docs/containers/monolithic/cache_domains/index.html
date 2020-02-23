@@ -1,0 +1,563 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="LanCache.NET" />
+  <link type="application/atom+xml" rel="alternate" href="/feed/release.xml" title="Lancache.net" />
+  <link rel="preload" href="/fonts/lato-v14-latin-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/lato-v14-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/css/screen.css" as="style">
+  <link rel="stylesheet" href="/css/screen.css">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Cache Domains | LanCache.NET</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Cache Domains" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Monolithic’s relationship with UKLans/Cache_Domains" />
+<meta property="og:description" content="Monolithic’s relationship with UKLans/Cache_Domains" />
+<link rel="canonical" href="http://localhost:4000/docs/containers/monolithic/cache_domains/" />
+<meta property="og:url" content="http://localhost:4000/docs/containers/monolithic/cache_domains/" />
+<meta property="og:site_name" content="LanCache.NET" />
+<meta property="og:image" content="http://localhost:4000/img/jekyll-og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/img/jekyll-og.png" />
+<meta property="twitter:title" content="Cache Domains" />
+<meta name="twitter:site" content="@lancachenet" />
+<script type="application/ld+json">
+{"@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/img/lancache-fulllogo.svg"}},"image":"http://localhost:4000/img/jekyll-og.png","url":"http://localhost:4000/docs/containers/monolithic/cache_domains/","description":"Monolithic’s relationship with UKLans/Cache_Domains","headline":"Cache Domains","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <!--[if lt IE 9]>
+  <script src="/js/html5shiv.min.js"></script>
+  <script src="/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+
+<body class="wrap">
+  <header>
+  <div class="flexbox">
+    <div class="center-on-mobiles">
+      <h1>
+        <a href="/" class="logo">
+          <span class="sr-only">Jekyll</span>
+          <img src="/img/lancache-fulllogo.svg" height="65" alt="LanCache.NET Logo">
+        </a>
+      </h1>
+    </div>
+    <nav class="main-nav hide-on-mobiles">
+      <ul>
+  
+  <li>
+    <a href="/">Home</a>
+  </li>
+  
+  <li class="current">
+    <a href="/docs/">Docs</a>
+  </li>
+  
+  <li>
+    <a href="/resources/">Resources</a>
+  </li>
+  
+  <li>
+    <a href="/showcase/">Showcase</a>
+  </li>
+  
+  <li>
+    <a href="/news/">News</a>
+  </li>
+  
+</ul>
+
+    </nav>
+    <div class="search hide-on-mobiles">
+      <input type="text" id="docsearch-input" placeholder="Search the docs…">
+
+	</div>
+    <div class="meta hide-on-mobiles">
+      <ul>
+<!--        <li>
+          <a href="https://github.com/lancachenet/releases/tag/v2.0.0">v2.0.0</a>
+</li> -->
+        <li>
+          <a href="https://github.com/lancachenet">GitHub</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <nav class="mobile-nav show-on-mobiles">
+    <ul>
+  
+    <li>
+      <a href="/">Home</a>
+    </li>
+  
+    <li class="current">
+      <a href="/docs/">Docs</a>
+    </li>
+  
+    <li>
+      <a href="/resources/">Resources</a>
+    </li>
+  
+  
+    <li>
+      <a href="/news/">News</a>
+    </li>
+  
+  <li>
+    <a href="https://github.com/lancachenet">GitHub</a>
+  </li>
+</ul>
+
+  </nav>
+</header>
+
+
+    <section class="docs">
+    <div class="grid">
+
+      <div class="docs-nav-mobile unit whole show-on-mobiles">
+  <select onchange="if (this.value) window.location.href=this.value">
+    <option value="">Navigate the docs…</option>
+    
+    <optgroup label="Getting Started">
+      
+        
+        <option value="/docs/">
+          Quickstart
+        </option>
+      
+        
+        <option value="/docs/installation/">
+          Installation
+        </option>
+      
+        
+        <option value="/docs/step-by-step/01-setup/">
+          Step by Step Tutorial
+        </option>
+      
+        
+        <option value="/docs/support/">
+          Support
+        </option>
+      
+    </optgroup>
+    
+    <optgroup label="Beyond the Basics">
+      
+        
+        <option value="/docs/usage/">
+          Lancache.Net Setup
+        </option>
+      
+        
+        <option value="/docs/docker-101/">
+          Docker 101
+        </option>
+      
+        
+        <option value="/docs/configuration/">
+          Configuration
+        </option>
+      
+        
+        <option value="/docs/caching-101/">
+          Caching 101
+        </option>
+      
+        
+        <option value="/docs/containers/">
+          Containers
+        </option>
+      
+    </optgroup>
+    
+    <optgroup label="Monolithic">
+      
+        
+        <option value="/docs/containers/monolithic/">
+          Monolithic
+        </option>
+      
+        
+        <option value="/docs/containers/monolithic/variables/">
+          Monolithic Environment Variables
+        </option>
+      
+        
+        <option value="/docs/containers/monolithic/cache_domains/">
+          Cache Domains
+        </option>
+      
+    </optgroup>
+    
+    <optgroup label="Lancache-dns">
+      
+        
+        <option value="/docs/containers/dns/">
+          Lancache-dns
+        </option>
+      
+        
+        <option value="/docs/containers/dns/variables/">
+          Lancache-dns Environment Variables
+        </option>
+      
+    </optgroup>
+    
+    <optgroup label="SniProxy">
+      
+        
+        <option value="/docs/containers/sniproxy/">
+          Sniproxy
+        </option>
+      
+        
+        <option value="/docs/containers/sniproxy/variables/">
+          Sniproxy Environment Variables
+        </option>
+      
+    </optgroup>
+    
+    <optgroup label="Generic">
+      
+        
+        <option value="/docs/containers/generic/">
+          Generic
+        </option>
+      
+        
+        <option value="/docs/containers/generic/variables/">
+          Generic Environment Variables
+        </option>
+      
+    </optgroup>
+    
+    <optgroup label="Advanced">
+      
+        
+        <option value="/docs/advanced/rancher/">
+          Rancher
+        </option>
+      
+        
+        <option value="/docs/advanced/dns/">
+          DNS Interception
+        </option>
+      
+        
+        <option value="/docs/advanced/cdn-capture/">
+          CDN Capture
+        </option>
+      
+    </optgroup>
+    
+    <optgroup label="Guides">
+      
+        
+        <option value="/docs/upgrading/">
+          Upgrading
+        </option>
+      
+    </optgroup>
+    
+  </select>
+</div>
+
+
+      <div class="unit four-fifths">
+        <article>
+          <div class="improve right hide-on-mobiles">
+            <a data-proofer-ignore href="https://github.com/lancachenet/lancachenet.github.io/edit/master/_docs/containers/monolithic/cache_domains.md"><i class="fa fa-pencil"></i> &nbsp;Improve this page</a>
+          </div>
+          <h1>Cache Domains</h1>
+          
+
+        </article>
+      </div>
+
+      <div class="unit one-fifth hide-on-mobiles">
+  <aside>
+    
+      <h4>Getting Started</h4>
+      <ul>
+        
+          
+          <li>
+            <a href="/docs/">
+              Quickstart
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/docs/installation/">
+              Installation
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/docs/step-by-step/01-setup/">
+              Step by Step Tutorial
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/docs/support/">
+              Support
+            </a>
+          </li>
+        
+      </ul>
+    
+      <h4>Beyond the Basics</h4>
+      <ul>
+        
+          
+          <li>
+            <a href="/docs/usage/">
+              Lancache.Net Setup
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/docs/docker-101/">
+              Docker 101
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/docs/configuration/">
+              Configuration
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/docs/caching-101/">
+              Caching 101
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/docs/containers/">
+              Containers
+            </a>
+          </li>
+        
+      </ul>
+    
+      <h4>Monolithic</h4>
+      <ul>
+        
+          
+          <li>
+            <a href="/docs/containers/monolithic/">
+              Monolithic
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/docs/containers/monolithic/variables/">
+              Monolithic Environment Variables
+            </a>
+          </li>
+        
+          
+          <li class="current">
+            <a href="/docs/containers/monolithic/cache_domains/">
+              Cache Domains
+            </a>
+          </li>
+        
+      </ul>
+    
+      <h4>Lancache-dns</h4>
+      <ul>
+        
+          
+          <li>
+            <a href="/docs/containers/dns/">
+              Lancache-dns
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/docs/containers/dns/variables/">
+              Lancache-dns Environment Variables
+            </a>
+          </li>
+        
+      </ul>
+    
+      <h4>SniProxy</h4>
+      <ul>
+        
+          
+          <li>
+            <a href="/docs/containers/sniproxy/">
+              Sniproxy
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/docs/containers/sniproxy/variables/">
+              Sniproxy Environment Variables
+            </a>
+          </li>
+        
+      </ul>
+    
+      <h4>Generic</h4>
+      <ul>
+        
+          
+          <li>
+            <a href="/docs/containers/generic/">
+              Generic
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/docs/containers/generic/variables/">
+              Generic Environment Variables
+            </a>
+          </li>
+        
+      </ul>
+    
+      <h4>Advanced</h4>
+      <ul>
+        
+          
+          <li>
+            <a href="/docs/advanced/rancher/">
+              Rancher
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/docs/advanced/dns/">
+              DNS Interception
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/docs/advanced/cdn-capture/">
+              CDN Capture
+            </a>
+          </li>
+        
+      </ul>
+    
+      <h4>Guides</h4>
+      <ul>
+        
+          
+          <li>
+            <a href="/docs/upgrading/">
+              Upgrading
+            </a>
+          </li>
+        
+      </ul>
+    
+  </aside>
+</div>
+
+
+      <div class="clear"></div>
+
+    </div>
+  </section>
+
+
+  <footer>
+  <div class="grid">
+    <div class="unit one-third center-on-mobiles">
+		<p>Content by LanCache.NET, Theme used with utmost thanks to the team at <a href="https://jekyllrb.com">Jekyll</a> and modified by LanCache.NET
+      <p>The contents of this website are <br />&copy;&nbsp;2020 under the terms of the <a href="https://github.com/lancachenet/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
+    </div>
+    <div class="unit two-thirds align-right center-on-mobiles">
+      <p>
+        Hosted by
+        <a href="https://github.com">
+          <img src="/img/footer-logo.png" width="100" height="30" alt="GitHub • Social coding">
+        </a>
+      </p>
+    </div>
+    <div class="unit two-thirds align-right center-on-mobiles">
+      <p>
+        LanCache.Net is a 
+        <a href="https://uklans.net/">
+          UKLans
+        </a> project.
+      </p>
+    </div>
+  </div>
+</footer>
+
+  <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class=\"sr-only\">Permalink</span><i class=\"fa fa-link\"></i>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
+</script>
+
+  
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+apiKey: '50fe39c839958dfad797000f33e2ec17',
+indexName: 'jekyllrb',
+inputSelector: '#docsearch-input',
+enhancedSearchInput: true,
+debug: false // Set debug to true if you want to inspect the dropdown
+});
+</script>
+
+</body>
+</html>

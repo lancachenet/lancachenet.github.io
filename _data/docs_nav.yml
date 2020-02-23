@@ -1,0 +1,45 @@
+#
+# Needs updating for lancache
+#
+#
+#
+#
+
+- title: Getting Started
+  docs:
+    - link: /docs/
+    - link: /docs/installation/
+    - link: /docs/step-by-step/01-setup/
+    - link: /docs/support/
+- title: Beyond the Basics
+  docs:
+    - link: /docs/usage/
+    - link: /docs/docker-101/
+    - link: /docs/configuration/
+    - link: /docs/caching-101/
+    - link: /docs/containers/
+- title: Monolithic
+  docs:
+    - link: /docs/containers/monolithic/
+    - link: /docs/containers/monolithic/variables/
+    - link: /docs/containers/monolithic/cache_domains/
+- title: Lancache-dns
+  docs:
+    - link: /docs/containers/dns/
+    - link: /docs/containers/dns/variables/
+- title: SniProxy
+  docs:
+    - link: /docs/containers/sniproxy/
+    - link: /docs/containers/sniproxy/variables/
+- title: Generic
+  docs:
+    - link: /docs/containers/generic/
+    - link: /docs/containers/generic/variables/
+- title: Advanced
+  docs:
+    - link: /docs/advanced/rancher/
+    - link: /docs/advanced/dns/
+    - link: /docs/advanced/cdn-capture/
+- title: Guides
+  docs:
+    - link: /docs/upgrading/
