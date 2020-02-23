@@ -36,9 +36,10 @@ This repo contains the sourcecode and ancillary information for Lancache.net and
 ## Building the site
 
 ### Jekyll & Github Pages
-This site is built using Jekyll and hosted on Github pages. To build at home for testing see (jekyllrb.com)
+This site is built using Jekyll and hosted on Github pages. To build at home for testing see [jekyllrb.com](jekyllrb.com)
 
 ### Theme
 The site uses the jekyllrb theme direct from the jeykll project [jekyll](https://github.com/jekyll/jekyll/tree/master/docs) and then further modified by the lancache.net team
 
 For examples of additional function check the jekyll repo above (specifically tutorials and variables)
+* See the [collections](https://jekyllrb.com/docs/collections/) page and [how they did it](https://github.com/jekyll/jekyll/blob/master/docs/_docs/collections.md)
