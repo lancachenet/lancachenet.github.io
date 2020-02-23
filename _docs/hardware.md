@@ -33,3 +33,7 @@ CPU: Quad-core AMD Phenom X4 II 945 (old!)
 MEM: 16GB DDR3
 Disk: 2x2TB RAID0 + 512MB SSD LVM Cache.
 Without the LVM Cache the system will push around 300-400mb/s, with the SSD Cache pushing around 800-900mb/s
+
+## Suggested Hardware
+
+Regular commodity hardware (a single 2TB WD Black on an HP Microserver) can achieve peak throughputs of ~30MB/s using this setup (depending on the specific content being served).  This would be suitable for very small LANs (<10 people).  For any sort of hosting for LAN sizes above this, it is thoroughly recommended that your storage backend is entirely SSD or NVMe.
