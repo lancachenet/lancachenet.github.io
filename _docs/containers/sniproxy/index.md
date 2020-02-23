@@ -10,9 +10,11 @@ When running a LAN Cache and overriding DNS entries, there are some services (in
 
 The solution is to run SNI Proxy on all IP addresses on the LAN Cache server. This accepts the HTTPS requests, looks at the host being requested and sends the request on to the correct server.
 
-## What does SNI Proxy do / NOT do?
+## Why do I need an SNI Proxy?
 
-SNI Proxy allows hostnames that serve BOTH http and https content to be overrideen and pointed to your cache server. Traffic going to that hostname on port 80 (http) will hit the cache container and be cached, whilst traffic on port 443 (https) is passed straight through to the internet by the SNI Proxy container.
+SNI Proxy allows hostnames that serve BOTH http and https content to be overridden and pointed to your cache server. Traffic going to that hostname on port 80 (http) will hit the cache container and be cached, whilst traffic on port 443 (https) is passed straight through to the internet by the SNI Proxy container.
+
+### Can SNI Proxy cache encrypted traffic?
 
 It does NOT allow https / encrypted content to be inspected or cached - merely ensure that it is passed straight through to the internet to avoid breaking anything whilst allow us to cache the HTTP traffic from that same hostname.
 
@@ -46,27 +48,3 @@ Follow the instructions in the Docker documentation to run the container at star
 ## Thanks
 
 The SNI Proxy config and Dockerfile are from the [OpenSourceLAN origin-docker](https://github.com/OpenSourceLAN/origin-docker) project on GitHub.
-
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2017 Jessica Smith, Robin Lewis, Brian Wojtczak, Jason Rivers
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
