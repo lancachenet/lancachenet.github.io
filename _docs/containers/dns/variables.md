@@ -22,3 +22,14 @@ If you are using docker from the command line environment variables are specifie
 ## General Settings
 
 {% include docs_variables_table.html scope=site.data.lancache_env_vars.lancache-dns %}
+
+## Advanced Settings
+
+<div class="note warning">
+  <h5>HERE BE DRAGONS!!!</h5>
+   <p>
+These settings really aren't meant to be changed very often, it is highly unlikely you want to change them unless it's been recommended by a team member or you REALLY know what you are doing
+   </p>
+</div>
+
+{% include docs_variables_table.html scope=site.data.lancache_env_vars.lancache-dns-advanced %}
