@@ -34,10 +34,6 @@
   docs:
     - link: /docs/containers/sniproxy/
     - link: /docs/containers/sniproxy/variables/
-- title: Generic
-  docs:
-    - link: /docs/containers/generic/
-    - link: /docs/containers/generic/variables/
 - title: Advanced
   docs:
     - link: /docs/advanced/rancher/

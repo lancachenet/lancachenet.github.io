@@ -4,13 +4,9 @@ description: Our DNS intercept container
 permalink: /docs/containers/dns/
 ---
 
-# Lan Cache DNS Docker Container
-
-![Docker Pulls](https://img.shields.io/docker/pulls/lancachenet/monolithic?label=Monolithic) ![Docker Pulls](https://img.shields.io/docker/pulls/lancachenet/lancache-dns?label=Lancache-dns) ![Docker Pulls](https://img.shields.io/docker/pulls/lancachenet/sniproxy?label=Sniproxy) ![Docker Pulls](https://img.shields.io/docker/pulls/lancachenet/generic?label=Generic)
-
 ## Introduction
 
-This docker container provides DNS entries for caching services to be used in conjunction with a lancachenet/monolithic & lancachenet/generic server.
+This docker container provides DNS entries for caching services to be used in conjunction with a  container.
 
 The DNS is generated automatically at startup of the container, the list of supported services is available here: https://github.com/uklans/cache-domains
 
@@ -19,8 +15,8 @@ The primary use case is gaming events, such as LAN parties, which need to be abl
 ## Quick Explanation
 
 For a LAN cache to function on your network you need two services.
-* A depot cache service
-* A special DNS service
+* A depot cache service e.g [monolithic](/docs/containers/monolithic/)
+* A special DNS service e.g this container
 
 The depot cache service transparently proxies your requests for content to Steam/Origin/Etc, or serves the content to you if it already has it.
 
@@ -84,10 +80,6 @@ docker run --name lancache-dns -p 10.0.0.2:53:53/udp -e CACHE_DOMAINS_REPO="http
 which would use the cache domains from https://github.com/your-username/cache-domains.git
 
 Should you wish to run a custom branch you can also specify `-e CACHE_DOMAINS_BRANCH="branch-name"`
-
-## Further information
-
-More information can be found at the [LanCache github page](http://lancache.net)
 
 ## License
 

@@ -4,13 +4,17 @@ description: Our sni proxy container
 permalink: /docs/containers/sniproxy/
 ---
 
-# SNI Proxy
-
 ## Introduction
 
-When running a LAN Cache and overriding DNS entries, there are some services including the Origin launcher which will try and use HTTPS to talk to one of the hostnames that are being overridden. This breaks updates to the Origin client.
+When running a LAN Cache and overriding DNS entries, there are some services (including the Origin launcher) which will try and use HTTPS to talk to one of the hostnames that are being overridden. This breaks updates to the Origin client.
 
 The solution is to run SNI Proxy on all IP addresses on the LAN Cache server. This accepts the HTTPS requests, looks at the host being requested and sends the request on to the correct server.
+
+## What does SNI Proxy do / NOT do?
+
+SNI Proxy allows hostnames that serve BOTH http and https content to be overrideen and pointed to your cache server. Traffic going to that hostname on port 80 (http) will hit the cache container and be cached, whilst traffic on port 443 (https) is passed straight through to the internet by the SNI Proxy container.
+
+It does NOT allow https / encrypted content to be inspected or cached - merely ensure that it is passed straight through to the internet to avoid breaking anything whilst allow us to cache the HTTP traffic from that same hostname.
 
 ## Usage
 
