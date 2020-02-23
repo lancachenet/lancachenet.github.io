@@ -22,7 +22,7 @@ monolithic:
     default: >-
       false
 
-generic-advanced:
+monolithic-advanced:
   - name: NGINX_WORKER_PROCESSES
     description: >-
     default: >-
