@@ -33,7 +33,7 @@ Run the lancache-dns container using the following to allow UDP port 53 (DNS) th
 docker run --name lancache-dns -p 10.0.0.2:53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=10.0.0.3 lancachenet/lancache-dns:latest
 ```
 
-If you are running a dedicated Monolithic instance for a particular CDN, you can specify a different IP for each service hosted within the cache. For a full list os supported services have a look at [uklans/cachedomains](https://github.com/uklans/cache-domains). Set the IP for a service using ${SERVICE}CACHE_IP environment:
+If you are running a dedicated Monolithic instance for a particular CDN, you can specify a different IP for each service hosted within the cache. For a full list of supported services have a look at [uklans/cachedomains](https://github.com/uklans/cache-domains). Set the IP for a service using ${SERVICE}CACHE_IP environment:
 
 ```
 LANCACHE_IP (requires USE_GENERIC_CACHE to be set to true)
