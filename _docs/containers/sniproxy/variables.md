@@ -1,5 +1,5 @@
 ---
-title: Sniproxy Environment Variables
+title: Environment Variables
 description: An overview of the available sniproxy environment variables
 permalink: /docs/containers/sniproxy/variables/
 draft: true
