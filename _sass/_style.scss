@@ -298,9 +298,7 @@ footer {
 
 /* Code */
 
-.quickstart {
-
-  .code {
+  .code-terminal {
     display: block;
     padding: 0;
     font-family: Menlo, Consolas, "Courier New", Courier, "Liberation Mono", monospace;
@@ -362,7 +360,6 @@ footer {
 
     .output { color: #888; }
   }
-}
 
 /* Free Hosting */
 

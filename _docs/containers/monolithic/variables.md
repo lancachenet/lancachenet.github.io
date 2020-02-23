@@ -21,7 +21,7 @@ If you are using docker from the command line environment variables are specifie
 
 ## General Settings
 {% include docs_variables_table.html scope=site.data.lancache_env_vars.monolithic %}
-{% include docs_variables_table.html scope=site.data.lancache_env_vars.generic %}
+
 
 ## Advanced Settings
 <div class="note warning">
@@ -32,4 +32,4 @@ These settings really aren't meant to be changed very often, it is highly unlike
 </div>
 
 {% include docs_variables_table.html scope=site.data.lancache_env_vars.monolithic-advanced %}
-{% include docs_variables_table.html scope=site.data.lancache_env_vars.generic-advanced %}
+
