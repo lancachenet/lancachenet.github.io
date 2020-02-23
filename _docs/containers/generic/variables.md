@@ -1,5 +1,5 @@
 ---
-title: Generic Environment Variables
+title: Environment Variables
 description: An overview of the available generic environment variables
 permalink: /docs/containers/generic/variables/
 draft: true
