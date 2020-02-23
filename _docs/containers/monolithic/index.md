@@ -2,13 +2,9 @@
 title: Monolithic
 description: Our primary container
 permalink: /docs/containers/monolithic/
-draft: true
 ---
 
-# Monolithic Game Download Cache Docker Container
-
 ![Docker Pulls](https://img.shields.io/docker/pulls/lancachenet/monolithic?label=Monolithic) ![Docker Pulls](https://img.shields.io/docker/pulls/lancachenet/lancache-dns?label=Lancache-dns) ![Docker Pulls](https://img.shields.io/docker/pulls/lancachenet/sniproxy?label=Sniproxy) ![Docker Pulls](https://img.shields.io/docker/pulls/lancachenet/generic?label=Generic)
-
 
 
 
@@ -122,7 +118,7 @@ In addition, there is an environment variable to control the max cache age.
 
 ```
 CACHE_MAX_AGE 3560d
-````
+```
 
 You can override these at run time by adding the following to your docker run command.  They accept the standard nginx notation for sizes (m) and durations (m/h/d).
 
@@ -133,6 +129,7 @@ You can override these at run time by adding the following to your docker run co
 CACHE_MEM_SIZE relates to the memory allocated to NGINX for the cache manager process.  1 megabyte will hold around 8000 cache entries, and for Monolithic slicing in 1MB slices, this means each 1M allocated will service around 8GB on disk.  The default size of 500MB should allow you to have a cache of up to 4TB quite comfortably.  Any other available memory in your cachebox should then be used for the Filesystem cache.
 
 ## Tuning your cache
+
 Steam in particular has some inherent limitations caused by strict adherence to the HTTP spec connection pool. As such Steam's download speed is highly dependent on the latency between your server and the Steam cdn servers. In the event you find your initial download speed with the default settings is slow this can be resolved by allocating more IP's to your cache. We suggest adding one IP at a time to see how much gain can be had (4 seems to work for a number of people).
 ### Step 1: Adding IP's to your docker host
 Consult your OS documentation in order to add additional IP addresses onto your docker cache host machine
@@ -183,30 +180,6 @@ If you want to test a new build with a forked uklans repo you can specify a comb
  - Based on original configs from [ansible-lanparty](https://github.com/ti-mo/ansible-lanparty).
  - Everyone on [/r/lanparty](https://reddit.com/r/lanparty) who has provided feedback and helped people with this.
  - UK LAN Techs for all the support.
-
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2019 Jessica Smith, Robin Lewis, Brian Wojtczak, Jason Rivers, James Kinsman
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
 
 # Frequently Asked Questions
 
@@ -329,3 +302,27 @@ CPU: Quad-core AMD Phenom X4 II 945 (old!)
 MEM: 16GB DDR3
 Disk: 2x2TB RAID0 + 512MB SSD LVM Cache.
 Without the LVM Cache the system will push around 300-400mb/s, with the SSD Cache pushing around 800-900mb/s
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2019 Jessica Smith, Robin Lewis, Brian Wojtczak, Jason Rivers, James Kinsman
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
