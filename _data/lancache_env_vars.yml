@@ -22,15 +22,23 @@ generic:
   - name: UPSTREAM_DNS
     description: >-
             The upstream DNS server(s) the cache should use. The defaults are Google DNS (8.8.8.8 and 8.8.4.4). Multiple upstream dns servers are allowed, separated by semi colons (or spaces).
+    default: >-
+            8.8.8.8 8.8.4.4
   - name: CACHE_MEM_SIZE
     description: >-
-            The amount of memory the container should use for caching data. Default is 500m
+            The amount of memory the container should use for caching data
+    default: >-
+           500m
   - name: CACHE_DISK_SIZE
     description: >-
-            The amount of disk space the container should use for caching data. Default is 1000000m
+            The amount of disk space the container should use for caching data
+    default: >-
+            500000m
   - name: CACHE_MAX_AGE
     description: >-
-            The maximum amount of time a file should be held in cache. Default is 10 years. There is usually no reason to reduce this - the cache will remove the oldest content if it needs the space.
+            The maximum amount of time a file should be held in cache. There is usually no reason to reduce this - the cache will automatically remove the oldest content if it needs the space.
+    default: >-
+            3560d
 
             
 ### Examples from jekyll
