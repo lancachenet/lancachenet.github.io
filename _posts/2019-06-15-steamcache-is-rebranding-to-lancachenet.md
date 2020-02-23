@@ -1,5 +1,5 @@
 ---                                                 
-title: 'SteamCache is rebanding to LanCache.Net, now with added Epic Games launcher support'
+title: 'SteamCache is rebranding to LanCache.Net, now with added Epic Games launcher support'
 date: 2019-06-15 09:00:00 -0000
 author: vibroaxe
 version: epic
