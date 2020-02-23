@@ -10,13 +10,14 @@ The best and quickest way is to get started with lancache.net is to use the [qui
 ## Requirements
 
 * A modern Linux distribution supporting Docker, eg [Ubuntu](https://www.ubuntu.com) or [CentOS](https://www.centos.org/)
+* [Docker](https://www.docker.com/)
+
     <div class="note info">
     <h5>Common Issues</h5>
     <p>
-    Be sure to check the a href="/docs/common-issues/">common issues</a> page if you have any problems setting up your server.
+    Be sure to check the <a href="/docs/common-issues/">common issues</a> page if you have any problems setting up your server.
     </p>
     </div>
-* [Docker](https://www.docker.com/)
 
 ## Guides
 
