@@ -1,7 +1,6 @@
 ---
 title:  Tuning your cache
-permalink: /docs/tuning-cache/
-draft: true
+permalink: /docs/advanced/tuning-cache/
 ---
 
 ## Adding additional IPs
