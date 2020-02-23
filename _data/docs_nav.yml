@@ -15,6 +15,7 @@
 #    - link: /docs/containers/
     - link: /docs/upgrading/
     - link: /docs/hardware/
+    - link: /docs/common-issues/
 - title: Monolithic
   docs:
     - link: /docs/containers/monolithic/
