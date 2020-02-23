@@ -114,7 +114,7 @@ lancache-dns:
 lancache-dns-advanced:
   - name: STEAMCACHE_DNS_VERSION
     description: >-
-    Internal reference version. DO NOT CHANGE THIS.
+      Internal reference version. DO NOT CHANGE THIS.
     default: 1
   - name: ENABLE_DNSSEC_VALIDATION
     description: >-

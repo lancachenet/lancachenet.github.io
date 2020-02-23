@@ -915,10 +915,13 @@ code.output {
 
 @media (max-width: 568px) {
   .note { margin-right: -30px; }
+  li .note { margin-left: -70px; }
 }
 
 @media (min-width: 768px) {
   .note { margin-left: -50px; }
+
+  li .note { margin-left: -90px; }
 }
 
 .note {
