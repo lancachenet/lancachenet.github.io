@@ -10,7 +10,14 @@
 monolithic:
   - name: CACHE_DOMAINS_REPO
     description: >-
-        The github repo url for the cache_domains files to use to populate the cdn maps
+        The github repo url for the cache_domains files to use to populate the cdn maps, if you do not want to use the recomended source for testing purposes.
+  - name: CACHE_DOMAINS_BRANCH
+    description: >-
+            The branch of the CACHE_DOMAINS_REPO to use
+  - name: NOFETCH
+    description: >-
+            Turn off all git pull operations and use stored data
+
 ### Examples from jekyll
 global:
   - name: site
