@@ -1,5 +1,5 @@
 ---
-title: Monolithic Environment Variables
+title: Environment Variables
 description: An overview of the available monolithic environment variables
 permalink: /docs/containers/monolithic/variables/
 draft: true
