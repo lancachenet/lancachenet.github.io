@@ -75,4 +75,4 @@ Follow the instructions in the Docker documentation to run the container at star
 
 ## Custom Forks/Branches
 
-See [cache_domains](docs/containers/monolithic/cache_domains.md) for details on how to use a none standard list of hostnames for this container.
+See [cache_domains](/docs/containers/monolithic/cache_domains/) for details on how to use a non-standard list of hostnames for this container.
