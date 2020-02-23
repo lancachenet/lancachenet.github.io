@@ -1,5 +1,5 @@
 ---
-title: Lancache-dns Environment Variables
+title: Environment Variables
 description: An overview of the available lancache-dns environment variables
 permalink: /docs/containers/dns/variables/
 draft: true

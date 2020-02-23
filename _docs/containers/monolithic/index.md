@@ -1,5 +1,5 @@
 ---
-title: Monolithic
+title: General
 description: Our primary container
 permalink: /docs/containers/monolithic/
 ---
