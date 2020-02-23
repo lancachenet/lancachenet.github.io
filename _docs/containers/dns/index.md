@@ -25,8 +25,7 @@ The special DNS service handles DNS queries normally (recursively), except when 
 
 ## Usage
 
-If all of the services you wish to run point to a single IP address, you should make sure you set USE_GENERIC_CACHE=true and set LANCACHE_IP to the IP address of the caching server.
-In this case it is highly recommended that you use some form of load balancer or reverse proxy, as running a single caching server for multiple services will result in cache clashes and will result in incorrect or corrupt data.
+If you are using a single Monoliothic instance, you should make sure you set USE_GENERIC_CACHE=true and set LANCACHE_IP to the IP address of the caching server.
 
 Run the lancache-dns container using the following to allow UDP port 53 (DNS) through the host machine:
 
@@ -34,7 +33,7 @@ Run the lancache-dns container using the following to allow UDP port 53 (DNS) th
 docker run --name lancache-dns -p 10.0.0.2:53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=10.0.0.3 lancachenet/lancache-dns:latest
 ```
 
-You can specify a different IP for each service hosted within the cache for a full list os supported services have a look at [uklans/cachedomains](https://github.com/uklans/cache-domains). Set the IP for a service using ${SERVICE}CACHE_IP environment:
+If you are running a dedicated Monolithic instance for a particular CDN, you can specify a different IP for each service hosted within the cache. For a full list os supported services have a look at [uklans/cachedomains](https://github.com/uklans/cache-domains). Set the IP for a service using ${SERVICE}CACHE_IP environment:
 
 ```
 LANCACHE_IP (requires USE_GENERIC_CACHE to be set to true)
