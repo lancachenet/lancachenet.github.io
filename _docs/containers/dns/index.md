@@ -76,12 +76,4 @@ Follow the instructions in the Docker documentation to run the container at star
 
 ## Custom Forks/Branches
 
-If you have your own fork (or branch) forked from [uklans/cache-domains](https://github.com/uklans/cache-domains) and would like to use your own for testing purposes (before pushing it to the main branch) or cache from unofficially supported domains, then declare it with `CACHE_DOMAINS_REPO` including the full .git URL for your fork, for example:
-
-```
-docker run --name lancache-dns -p 10.0.0.2:53:53/udp -e CACHE_DOMAINS_REPO="https://github.com/your-username/cache-domains.git" lancache/lancache-dns:latest
-```
-
-which would use the cache domains from https://github.com/your-username/cache-domains.git
-
-Should you wish to run a custom branch you can also specify `-e CACHE_DOMAINS_BRANCH="branch-name"`
+See [cache_domains](docs/containers/monolithic/cache_domains.md) for details on how to use a none standard list of hostnames for this container.
