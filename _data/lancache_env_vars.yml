@@ -20,7 +20,7 @@ monolithic:
     default: false
   - name: UPSTREAM_DNS
     description: >-
-      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do point this at lancache-dns.
+      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
     default: 8.8.8.8 8.8.4.4
   - name: CACHE_MEM_SIZE
     description: >-
@@ -62,7 +62,7 @@ monolithic-advanced:
 generic:
   - name: UPSTREAM_DNS
     description: >-
-      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do point this at lancache-dns.
+      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
     default: 8.8.8.8 8.8.4.4
   - name: CACHE_MEM_SIZE
     description: >-
@@ -108,7 +108,7 @@ lancache-dns:
     default: master
   - name: UPSTREAM_DNS
     description: >-
-      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do point this at lancache-dns.
+      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
     default: 8.8.8.8
 
 lancache-dns-advanced:
@@ -127,5 +127,5 @@ lancache-dns-advanced:
 sniproxy:
   - name: UPSTREAM_DNS
     description: >-
-      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do point this at lancache-dns.
+      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
     default: 8.8.8.8 8.8.4.4
