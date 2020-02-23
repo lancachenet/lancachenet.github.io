@@ -2,12 +2,12 @@
 title: Environment Variables
 description: An overview of the available monolithic environment variables
 permalink: /docs/containers/monolithic/variables/
-draft: true
 ---
 
-Monolithic and Generic's behaviour is controlled by a wide variety of environment variables. They are detailed here along with the default values. 
+Monolithic and Generic's behaviour is controlled by a wide variety of environment variables. They are detailed here along with the default values.
 
 ## Changing Environment Variables
+
 <div class="note info">
   <h5>Recreating is ok</h5>
    <p>
@@ -20,10 +20,11 @@ If you are using docker-compose these variables can be changed by editing the .e
 If you are using docker from the command line environment variables are specified using `-e VARIABLE=VALUE` format when you launch the container.
 
 ## General Settings
+
 {% include docs_variables_table.html scope=site.data.lancache_env_vars.monolithic %}
 
-
 ## Advanced Settings
+
 <div class="note warning">
   <h5>HERE BE DRAGONS!!!</h5>
    <p>
@@ -32,4 +33,3 @@ These settings really aren't meant to be changed very often, it is highly unlike
 </div>
 
 {% include docs_variables_table.html scope=site.data.lancache_env_vars.monolithic-advanced %}
-
