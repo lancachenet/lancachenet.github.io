@@ -11,7 +11,7 @@ By far the biggest factor is the hardware of the cache box. See [hardware](/docs
 
 That said, there are 2 things you can look at when dealing with a slower than expected performance issue. Beware, these areas are not for novice users.
 
-## Adding additional IPs
+## A - Adding additional IPs
 
 Steam in particular has some inherent limitations caused by strict adherence to the HTTP spec connection pool. As such Steam's download speed is highly dependent on the latency between your server and the Steam cdn servers. In the event you find your initial download speed with the default settings is slow this can be resolved by allocating more IP's to your cache. We suggest adding one IP at a time to see how much gain can be had (4 seems to work for a number of people).
 
@@ -34,7 +34,7 @@ Finally we need to inform lancache-dns that STEAM is now available on multiple I
 
 Choose a game which has not been seen by the cache before (or clear your `/data/cache` folder) and start downloading it. Check to see what the maximum speed seen by your steam client is. If necessary repeat steps 1-3 with additional IPs until you see a download equivalent to your uncached steam client or no longer see an improvement vs the previous IP allocation.
 
-## Tweaking slice size
+## B - Tweaking slice size
 
 Blizzard in particular sees a slower initial download rate through the cache than without (though obviously subsequent downloads are MUCH faster). Testing shows that the blizzard client does not cope as well as most others with the chunking / slicing configuration for nginx that lancache uses.
 
