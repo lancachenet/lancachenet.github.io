@@ -18,6 +18,7 @@
     - link: /docs/configuration/
     - link: /docs/caching-101/
     - link: /docs/containers/
+    - link: /docs/upgrading/
 - title: Monolithic
   docs:
     - link: /docs/containers/monolithic/
@@ -40,6 +41,3 @@
     - link: /docs/advanced/rancher/
     - link: /docs/advanced/dns/
     - link: /docs/advanced/cdn-capture/
-- title: Guides
-  docs:
-    - link: /docs/upgrading/

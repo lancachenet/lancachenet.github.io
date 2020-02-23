@@ -37,51 +37,34 @@ permalink: /
 </section>
 <section class="quickstart">
   <div class="grid">
-    <div class="unit golden-small center-on-mobiles">
+    <div class="unit one-fifth center-on-mobiles">
       <h3>Get up and running <em>in&nbsp;seconds</em>.</h3>
     </div>
-    <div class="unit golden-large code">
+    <div class="unit four-fifths code">
       <p class="title">Quick-start Instructions</p>
       <div class="shell">
         <p class="line">
           <span class="path">~</span>
           <span class="prompt">$</span>
-          <span class="command">export LANCACHE_IP=`hostname -I | cut -d' ' -f1`<span>
+          <span class="command">git clone https://github.com/lancachenet/docker-compose/ lancache<span>
         </p>
         <p class="line">
           <span class="path">~</span>
           <span class="prompt">$</span>
-          <span class="command">mkdir -p /cache/data /cache/logs </span>
+          <span class="command">cd lancache</span>
         </p>
         <p class="line">
-          <span class="path">~</span>
+          <span class="path">~/lancache</span>
           <span class="prompt">$</span>
-          <span class="command">cd /cache</span>
+          <span class="command">nano -w .env</span>
         </p>
         <p class="line">
-          <span class="path">/cache</span>
+          <span class="path">~/lancache</span>
           <span class="prompt">$</span>
-          <span class="command">docker run --restart unless-stopped --name lancache -v /cache/data:/data/cache -v /cache/logs:/data/logs -p $LANCACHE_IP:80:80 lancachenet/monolithic:latest</span>
+          <span class="command">docker-compose up</span>
         </p>
         <p class="line">
-          <span class="path">/cache</span>
-          <span class="prompt">$</span>
-          <span class="command">docker run --restart unless-stopped --name lancache-dns -p $LANCACHE_IP:53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=$LANCACHE_IP lancachenet/lancache-dns:latest</span>
-        </p>
-        <p class="line">
-          <span class="path">/cache</span>
-          <span class="prompt">$</span>
-          <span class="command">docker run --restart unless-stopped --name lancache-sniproxy -p $LANCACHE_IP:443:443 lancachenet/sniproxy:latest
-		  </span>
-        </p>
-        <p class="line">
-          <span class="path">/cache</span>
-          <span class="prompt">$</span>
-          <span class="command">echo Please configure your dhcp server to serve dns as $HOST_IP
-		  </span>
-        </p>
-        <p class="line">
-          <span class="output"># => Check the correct IP is displayed above and configure your router for DNS</span>
+          <span class="output"># => Configure your router to serve lancache-dns</span>
         </p>
       </div>
     </div>
