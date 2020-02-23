@@ -4,10 +4,6 @@ description: Our primary container
 permalink: /docs/containers/monolithic/
 ---
 
-![Docker Pulls](https://img.shields.io/docker/pulls/lancachenet/monolithic?label=Monolithic) ![Docker Pulls](https://img.shields.io/docker/pulls/lancachenet/lancache-dns?label=Lancache-dns) ![Docker Pulls](https://img.shields.io/docker/pulls/lancachenet/sniproxy?label=Sniproxy) ![Docker Pulls](https://img.shields.io/docker/pulls/lancachenet/generic?label=Generic)
-
-
-
 ## Introduction
 
 This docker container provides a caching proxy server for game download content. For any network with more than one PC gamer in connected this will drastically reduce internet bandwidth consumption. 
@@ -48,49 +44,11 @@ docker run \
 
 Unlike lancachenet/generic this service will cache all cdn services defined in the [uklans cache-domains repo](https://github.com/uklans/cache-domains) so multiple instances are not required.
 
-## Simple Full Stack startup
-
-To initialise a full caching setup with dns and sni proxy you can use the following script as a starting point:
-```
-export HOST_IP=`hostname -I | cut -d' ' -f1`
-docker run --restart unless-stopped --name lancache-dns --detach -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=$HOST_IP lancachenet/lancache-dns:latest
-docker run --restart unless-stopped --name lancache --detach -v /cache/data:/data/cache -v /cache/logs:/data/logs -p 80:80  lancachenet/monolithic:latest
-docker run --restart unless-stopped --name sniproxy --detach -p 443:443 lancachenet/sniproxy:latest
-echo Please configure your router/dhcp server to serve dns as $HOST_IP
-```
-Please check that `hostname -I` returns the correct IP before running this snippet
-
-
-## Changing from lancachenet/steamcache and lancachenet/generic
-
-This new container is designed to replace an array of steamcache or generic containers with a single monolithic instance. However if you currently run a steamcache or generic setup then there a few things to note.
-
-1) Your existing cache files are NOT compatible with lancachenet/monolithic, unfortunately your cache will need repriming
-2) You do not need multiple containers, a single monolithic container will cache ALL cdns without collision
-3) lancachenet/monolithic should be compatible with your existing container's env vars so you can use the same run command you currently use, just change to lancachenet/monolithic
-
-
-## Origin and SSL
+## SSL
 
 Some publishers, including Origin, use the same hostnames we're replacing for HTTPS content as well as HTTP content. We can't cache HTTPS traffic, so if you're intercepting DNS, you will need to run an SNI Proxy container on port 443 to forward on any HTTPS traffic.
 
-```
-docker run \
-  --restart unless-stopped \
-  --name sniproxy \
-  -p 443:443 \
-  lancachenet/sniproxy:latest
-```
-
-Please read the [lancachenet/sniproxy](https://github.com/lancachenet/sniproxy) project for more information.
-
-## DNS Entries
-
-You can find a list of domains you will want to use for each service over on [uklans/cache-domains](https://github.com/uklans/cache-domains). The aim is for this to be a definitive list of all domains you might want to cache.
-
-## Suggested Hardware
-
-Regular commodity hardware (a single 2TB WD Black on an HP Microserver) can achieve peak throughputs of ~30MB/s using this setup (depending on the specific content being served).  This would be suitable for very small LANs (<10 people).  For any sort of hosting for LAN sizes above this, it is thoroughly recommended that your storage backend is entirely SSD or NVMe.
+Please read the [sniproxy](/docs/containers/sniproxy/) container information for more information on how to do this.
 
 ## Changing Upstream DNS
 
@@ -128,21 +86,6 @@ You can override these at run time by adding the following to your docker run co
 
 CACHE_MEM_SIZE relates to the memory allocated to NGINX for the cache manager process.  1 megabyte will hold around 8000 cache entries, and for Monolithic slicing in 1MB slices, this means each 1M allocated will service around 8GB on disk.  The default size of 500MB should allow you to have a cache of up to 4TB quite comfortably.  Any other available memory in your cachebox should then be used for the Filesystem cache.
 
-## Tuning your cache
-
-Steam in particular has some inherent limitations caused by strict adherence to the HTTP spec connection pool. As such Steam's download speed is highly dependent on the latency between your server and the Steam cdn servers. In the event you find your initial download speed with the default settings is slow this can be resolved by allocating more IP's to your cache. We suggest adding one IP at a time to see how much gain can be had (4 seems to work for a number of people).
-### Step 1: Adding IP's to your docker host
-Consult your OS documentation in order to add additional IP addresses onto your docker cache host machine
-### Step 2: Adding IP's to your cache container
-In order for this to work you need to add the port maps onto the relevant cdn container (for example steam). 
-* If you are using `lancachenet/monolithic` then using `-p 80:80` should be sufficient as per the documentation. 
-* If you are using `lancachenet/generic` or `lancachenet/steamcache` then add multiple `-p <IPadddress>:80:80` for each IP you have added. For example `-p 10.10.1.30:80:80 -p 10.10.1.31:80:80`
-
-### Step 3: Informing lancache-dns of the extra IP's
-Finally we need to inform lancache-dns that STEAM is now available on multiple IP addresses. This can be done on the command line using the following command `-e STEAMCACHE_IP="10.10.1.30 10.10.1.31"`. Note the quotes surrounding the multiple IP addresses.
-### Step 4: Testing
-Choose a game which has not been seen by the cache before (or clear your `/data/cache` folder) and start downloading it. Check to see what the maximum speed seen by your steam client is. If necessary repeat steps 1-3 with additional IPs until you see a download equivalent to your uncached steam client or no longer see an improvement vs the previous IP allocation.
-
 ## Monitoring
 
 Access logs are written to /data/logs. If you don't particularly care about keeping them, you don't need to mount an external volume into the container.
@@ -154,32 +97,6 @@ docker exec -it lancache tail -f /data/logs/access.log
 ```
 
 If you have mounted the volume externally then you can tail it on the host instead.
-
-## Advice to Publishers
-
-If you're a games publisher and you'd like LAN parties, gaming centers and other places to be able to easily cache your game updates, we reccomend the following:
-
- - If your content downloads are on HTTPS, you can do what Riot have done - try and resolve a specific hostname. If it resolves to a RFC1918 private address, switch your downloads to use HTTP instead.
- - Try to use hostnames specific for your HTTP download traffic.
- - Tell us the hostnames that you're using for your game traffic. We're maintaining a list at [uklans/cache-domains](https://github.com/uklans/cache-domains) and we'll accept pull requests!
- - Have your client verify the files and ensure the file they've downloaded matches the file they **should** have downloaded. This cache server acts as a man-in-the-middle so it would be good to ensure the files are correct.
-
- If you need any further advice, please contact us and we'll be glad to help!
-
-## Frequently Asked Questions
-
-If you have any questions, please check [our FAQs](faq.md). If this doesn't answer your question, please raise an issue in GitHub.
-
-## How to help out
-To build just run `docker build --tag lancachenet/monolithic:testing .`. To test you can run `./run_tests.sh`
-
-If you want to test a new build with a forked uklans repo you can specify a combination of `-e CACHE_DOMAINS_REPO="https://github.com/vibroaxe/cache-domains.git" -e CACHE_DOMAINS_BRANCH="testing"` or even `-v <your repo here>:/data/cachedomains -e NOFETCH=true` if using a locally bind mounted git repo.
-
-## Thanks
-
- - Based on original configs from [ansible-lanparty](https://github.com/ti-mo/ansible-lanparty).
- - Everyone on [/r/lanparty](https://reddit.com/r/lanparty) who has provided feedback and helped people with this.
- - UK LAN Techs for all the support.
 
 # Frequently Asked Questions
 
@@ -270,38 +187,11 @@ If your cache host is running a recent Linux distribution, it is likely running 
 1. Run `sudo service systemd-resolved restart`
 1. Check that you can still resolve DNS on the cache server by running `nslookup` for a domain of your choice (e.g. `lancache.net`)
 
-# Hardware examples and throughput 
+## Thanks
 
-## Introduction
-
-This project is heavily reliant on the hardware that you run it on.  The most 
-common complaint is "The cache is slow" and in nearly every case this can be 
-attributed to the hardware that the cache is being run on.
-
-
-The following hardware specifications are real-world examples of hardware that
-has been used to run this project, so you can get an idea of the type of 
-performance that you can expect from varying hardware setups.
-
-
-
-## High Capacity
-
-24 CPU core, 140GB memory, 8 x Samsung 850 Pro SSD in RAID6
-Served ~2,800 uniques, peaking at 10Gbps
-
-
-## Medium capacity
-
-24 CPU core, 180GB memory, 5 x 900GB 15K SAS drives, plus 180GB SSD (lvmcache)
-Served ~250 uniques, peaking at 1.8Gbps
-
-## Low capacity
-
-CPU: Quad-core AMD Phenom X4 II 945 (old!)
-MEM: 16GB DDR3
-Disk: 2x2TB RAID0 + 512MB SSD LVM Cache.
-Without the LVM Cache the system will push around 300-400mb/s, with the SSD Cache pushing around 800-900mb/s
+ - Based on original configs from [ansible-lanparty](https://github.com/ti-mo/ansible-lanparty).
+ - Everyone on [/r/lanparty](https://reddit.com/r/lanparty) who has provided feedback and helped people with this.
+ - UK LAN Techs for all the support.
 
 ## License
 
