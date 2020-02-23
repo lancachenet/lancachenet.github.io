@@ -21,7 +21,13 @@ git clone https://github.com/lancachenet/docker-compose.git
 
 ## Environment Setup
 
-Before starting the containers it's important to configure the basics by editing the `.env` file. Work through the comments and check out the additional notes below for each variable to ensure it's set to something "sensible"
+Before starting the containers it's important to configure the basics by editing the `.env` file. Work through the file and read the comments before updating each setting. 
+
+<div class="note">
+  <h5>Getting stuck?</h5>
+  <p>There are a few <a href="/docs/installation/docker-compose/env/">additional notes</a> for each variable to help you set it to something "sensible"
+  </p>
+</div>
 
 ## Ready to go
 We are now ready to start the stack. You can bring the lancache.net stack up typing
@@ -67,14 +73,14 @@ nslookup lancache.steamcontent.com
 4. Try a few other cdns
 
 5. Precache some of the more popular games you might expect to happen at your event
-* Although precaching isn't nessecary, it certainly helps the initial demand on a cache when everyone turns up at the same time.
+* Although precaching isn't necessary, it certainly helps the initial demand on a cache when everyone turns up at the same time.
 
 6. Get your friends round and enjoy the entire lan being able to download a game for only 1x external traffic.
 
 <div class="note">
   <h5>Stay Up to Date</h5>
   <p>We recommend you update your lancache.net containers regularly to benefit from
-  the latest bug fixes. Check out our guide on [upgrading](/docs/upgrading/)
+  the latest bug fixes. Check out our guide on <a href="/docs/upgrading">upgrading</a>
   </p>
 </div>
 
