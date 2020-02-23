@@ -23,7 +23,7 @@ git clone https://github.com/lancachenet/docker-compose.git
 
 Before starting the containers it's important to configure the basics by editing the `.env` file. Work through the file and read the comments before updating each setting. 
 
-<div class="note">
+<div class="note info">
   <h5>Getting stuck?</h5>
   <p>There are a few <a href="/docs/installation/docker-compose/env/">additional notes</a> for each variable to help you set it to something "sensible"
   </p>
@@ -32,7 +32,7 @@ Before starting the containers it's important to configure the basics by editing
 ## Ready to go
 We are now ready to start the stack. You can bring the lancache.net stack up typing
 ```sh
-docker-compose up
+docker-compose up -d
 ```
 If you wish to stop it later simply type
 ```sh
@@ -80,7 +80,7 @@ nslookup lancache.steamcontent.com
 <div class="note">
   <h5>Stay Up to Date</h5>
   <p>We recommend you update your lancache.net containers regularly to benefit from
-  the latest bug fixes. Check out our guide on <a href="/docs/upgrading">upgrading</a>
+  the latest bug fixes. Check out our guide on <a href="/docs/upgrading">upgrading &rarr;</a>
   </p>
 </div>
 

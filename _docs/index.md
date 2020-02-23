@@ -36,7 +36,7 @@ If you have a Linux machine that already has Docker pre-installed, please just r
 <p class="line">
 <span class="path">~/lancache</span>
 <span class="prompt">$</span>
-<span class="command">docker-compose up</span>
+<span class="command">docker-compose up -d</span>
 </p>
 <p class="line">
 <span class="output"># => Configure your router to serve lancache-dns</span>
