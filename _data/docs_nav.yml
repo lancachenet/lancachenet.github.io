@@ -10,9 +10,9 @@
 - title: Beyond the Basics
   docs:
 #    - link: /docs/docker-101/
-    - link: /docs/configuration/
 #    - link: /docs/caching-101/
 #    - link: /docs/containers/
+    - link: /docs/system-overview/
     - link: /docs/upgrading/
     - link: /docs/hardware/
     - link: /docs/common-issues/
