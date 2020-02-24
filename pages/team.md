@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: docs
 title: The LanCache.NET Team
 menu_name: Meet the Team
 permalink: /team/
@@ -18,6 +18,8 @@ community around the ecosystem thrive._
 * Barry "Lepidopterist" Zubel (@lepidopterist)
 * Brian "Astrolox" (@astrolox)
 * Mike "Unspec" Taylor (@unspec)
+
+If you are looking for advice try [support](/support)
 
 ## Special Mentions
 
