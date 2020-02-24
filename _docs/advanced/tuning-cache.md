@@ -11,6 +11,8 @@ By far the biggest factor is the hardware of the cache box. See [hardware](/docs
 
 That being said, there are 2 things you can look at doing when dealing with a slower than expected performance issue.
 
+{% include toc.html %}
+
 <div class="note info">
 <h5>Advanced Steps</h5>
 <p>
@@ -18,7 +20,7 @@ Beware, these steps are aimed at more experienced users and could cause you more
 </p>
 </div>
 
-## A - Adding additional IPs
+## Adding additional IPs
 
 Some client software has some inherent limitations caused by strict adherence to the HTTP spec connection pool. Because of this, download speed is highly dependent on the latency between your server and the CDN servers. In the event you find your initial download speed with the default settings is slow this may be resolved by allocating more IP's to your cache. We suggest adding one IP at a time to see how much gain can be had (4 has been seen to work for a number of people).
 
@@ -41,7 +43,7 @@ Finally we need to inform lancache-dns that Steam is now available on multiple I
 
 Choose a game which has not been seen by the cache before (or clear your `/data/cache` folder) and start downloading it. Check to see what the maximum speed seen by your steam client is. If necessary repeat steps 1-3 with additional IPs until you see a download equivalent to your uncached Steam client or no longer see an improvement vs the previous IP allocation.
 
-## B - Tweaking slice size
+## Tweaking slice size
 
 Blizzard in particular sees a slower initial download rate through the cache than without (though obviously subsequent downloads are MUCH faster). Testing shows that the Blizzard client does not cope as well as most others with the chunking / slicing configuration for nginx that lancache uses.
 
@@ -51,7 +53,7 @@ Please be aware that there are a number of potential downsides to increasing the
 
 Please note that this tuning area is still under active development and the detail is likely to change as work progresses.
 
-### Multi-user risk
+### 1. Multi-user risk
 
 In particular in a multi-user environment (like most LAN parties) where more than one person may be trying to download the same game, and thus the same multi-gig files, the performance might be reduced. The usual behaviour is if somebody tries to download a slice that is currently being downloaded by somebody else, the second person will be forced to wait until that slice has fully downloaded before being served with the slice. If you have a relatively slow internet connection (or its very highly utilised - like at most LAN parties) then the time to download a larger slice will be high and the resulting wait time could cause problems for the game client.
 
@@ -61,7 +63,7 @@ There is no one slice value that is likely to work in all configurations.
 
 The default of 1MB is considered the safest, but increasing to 2, 4 or even 8 might give performance improvements for single-user download scenarios without too many adverse effects.
 
-### Invalidation of existing cache data
+### 2. Invalidation of existing cache data
 
 In addition to the above - changing the slice size will make most of the existing data in your cache unusable, and thus will have to be downloaded again. Old data will be purged off as space is required, so there is no requirement to manually remove it.
 
@@ -74,6 +76,6 @@ We are adding a hash check on Monolithic startup to identify whether various cac
 
 Our longer term plan will be to default to (most likely) an 8MB slice size after more extensive testing.
 
-### Which CDNs will be impacted
+### 3. Which CDNs will be impacted
 
 We anticipate that changing the slice size will have very minimal impact on Steam and Uplay as they already use files that are mainly around 1MB or less. Blizzard and Origin are potentially the CDN's that will benefit the most, as they download large files which are sliced by LanCache.
