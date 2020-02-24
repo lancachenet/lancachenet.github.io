@@ -436,6 +436,7 @@ footer {
     padding: 0;
     font-family: Menlo, Consolas, "Courier New", Courier, "Liberation Mono", monospace;
     line-height: 1.3em;
+    overflow-wrap: break-word;
 
     .title {
       display: block;
