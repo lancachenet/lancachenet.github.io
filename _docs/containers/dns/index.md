@@ -1,5 +1,6 @@
 ---
-title: General
+title: Lancache-DNS
+menu_name: General
 description: Our DNS intercept container
 permalink: /docs/containers/dns/
 ---
