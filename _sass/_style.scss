@@ -498,6 +498,9 @@ aside {
   article { min-height: 800px; }
 
   .content { padding: 0; }
+
+  p { text-align: justify; }
+  .code p { text-align: left; }
 }
 
 .section-nav {
@@ -670,6 +673,15 @@ article h2:first-child { margin-top: 0; }
   @include box-shadow(0 -1px 0 #2f2f2f);
 }
 
+.news {
+	p { text-align: justify; }
+	.code p { text-align: left; }
+}
+
+.standalone {
+	p { text-align: justify; }
+	.code p { text-align: left; }
+}
 /* Code Highlighting */
 
 

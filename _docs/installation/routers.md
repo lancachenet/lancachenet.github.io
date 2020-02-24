@@ -4,11 +4,15 @@ description: Official guide to install lancache.net
 permalink: /docs/installation/routers/
 ---
 
-Changing the DNS server settings on a router isn't tricky, but every manufacturer uses a custom interface, meaning the process can differ widely depending on the router you own.
+The ideal solution when deploying lancache.net is to distribute the IP of your lancache-dns server via dhcp. Many commercial routers will have an option under __LAN settings__ (or similar) to change the _DNS Server IP_. Unfortunately not all consumer brand routers are so versatile so if you cannot find a LAN DNS setting you can use the WAN settings instead.
 
-Here are the steps needed to change the DNS servers on the most popular router brands.
+<div class="note warning">
+  <h5>Take Care</h5>
+  <p>If you are overriding the WAN DNS settings on your router it is extremly important to set <code>UPSTREAM_DNS</code> on all containers to a valid external IP (such as Google or Cloudflare)
+  </p>
+</div>
 
-See this public DNS servers list if you haven't already settled on an independent DNS server provider, any of which could perform better than the one assigned by your ISP.
+Changing the DNS server settings on a router isn't tricky, but every manufacturer uses a custom interface, meaning the process can differ widely depending on the router you own. Here are the steps needed to change the WAN DNS servers on the most popular router brands.
 
 ## Linksys
 ![Photo of a Linksys EA8500 Router](https://www.lifewire.com/thmb/ufbA5SBHQyJ2-GQYUGaL3q3pxIc=/1000x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/linksys-ea8500-router-56a6fac35f9b58b7d0e5d140.jpg)
