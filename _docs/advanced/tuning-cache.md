@@ -79,3 +79,9 @@ Our longer term plan will be to default to (most likely) an 8MB slice size after
 ### 3. Which CDNs will be impacted
 
 We anticipate that changing the slice size will have very minimal impact on Steam and Uplay as they already use files that are mainly around 1MB or less. Blizzard and Origin are potentially the CDN's that will benefit the most, as they download large files which are sliced by LanCache.
+
+### 4. Disabling slicing
+
+Per the [nginx documentation](http://nginx.org/en/docs/http/ngx_http_slice_module.html), setting the slice size to 0 disables slicing.
+
+We do NOT recommend turning off slicing (or setting the value too high) - it will have serious performance impacts on the operation of the cache given the significant size of files found in many modern games.
