@@ -16,14 +16,15 @@ community around the ecosystem thrive._
 * Mathew "Proto" Burnett (@mathewburnett)
 * Barry "Lepidopterist" Zubel (@lepidopterist)
 * Brian "Astrolox" (@astrolox)
-* Michael "Unspec" Taylor (@unspec)
+* Mike "Unspec" Taylor (@unspec)
 
 ## Special Mentions
 
 _We couldn't do what we do without many others in the community who add suggestions, comments and features_
 
 * (@Crabbey)
-* (@RConan)
-* @Hairyz0r
+* (@riconnon)
+* (@TomPenrose)
 * (@Pumpkin)
 * (@v3n)
+* (@stevenh)
