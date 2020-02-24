@@ -5,6 +5,9 @@
       <ul>
         {% for item in section.docs %}
           {% assign p = site.documents | where: "url", item.link | first %}
+		  {% if p.url != item.link %}
+	          {% assign p = site.pages | where: "url", item.link | first %}
+		 {% endif %}
           <li {%- if page.url == p.url %} class="current" {%- endif %}>
             <a href="{{ p.url }}">
               {{ p.menu_name | default: p.title }}

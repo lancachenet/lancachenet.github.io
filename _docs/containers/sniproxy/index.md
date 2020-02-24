@@ -43,7 +43,7 @@ You can override these using the `-e` argument to docker run and specifying your
 ## Running on Startup
 
 Follow the instructions in the Docker documentation to run the container at startup.
-[Documentation](https://docs.docker.com/articles/host_integration/)
+[Documentation](https://docs.docker.com/config/containers/start-containers-automatically/)
 
 ## Thanks
 
