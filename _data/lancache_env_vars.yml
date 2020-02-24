@@ -57,6 +57,13 @@ monolithic-advanced:
   - name: NGINX_WORKER_PROCESSES
     description: >-
     default: 16
+  - name: CACHE_SLICE_SIZE
+    description: >-
+      See https://www.lancache.net/docs/advanced/tuning-cache/#b---tweaking-slice-size before changing this. It WILL invalidate any currently cached data.
+    default: 1m
+  - name: CACHE_MODE
+    description: >-
+    default: generic
 
 # note some of these are duplicates of monolithic
 generic:
@@ -96,6 +103,13 @@ generic-advanced:
   - name: NGINX_WORKER_PROCESSES
     description: >-
     default: 16
+  - name: CACHE_SLICE_SIZE
+    description: >-
+      See https://www.lancache.net/docs/advanced/tuning-cache/#b---tweaking-slice-size before changing this. It WILL invalidate any currently cached data.
+    default: 1m
+  - name: CACHE_MODE
+    description: >-
+    default: generic
 
 lancache-dns:
   - name: CACHE_DOMAINS_REPO
