@@ -1,6 +1,7 @@
 ---
 layout: page
 title: The LanCache.NET Team
+menu_name: Meet the Team
 permalink: /team/
 ---
 

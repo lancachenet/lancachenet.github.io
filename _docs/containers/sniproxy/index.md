@@ -1,5 +1,6 @@
 ---
-title: General
+title: SNI Proxy
+menu_name: General
 description: Our sni proxy container
 permalink: /docs/containers/sniproxy/
 ---

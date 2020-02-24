@@ -36,3 +36,9 @@ Its quite common to see different or odd behaviour at the download client with a
 1. Client downloads 20MB over a 10Gbit nic to an M2 harddrive at speeds the 1990s wouldn't even dare dream of and gets the file almost instantly. The average speed in the client blips upto 100Kbps and returns to zero.
 
 It worth remembering that your cache is aiming to provide for many people and that using one client to assess speed can be misleading. That said there are some games that have odd behaviour that can be improved. Some CDNs use back off mechanics that don't play well with the slicing module in nginx. Others have "interesting" behavior with range requests. For the most part we have found the standard behaviour to be satifactory but if you want to try and tune it, try out the [advanced section](/docs/advanced/tuning-cache).
+
+## IPv6
+
+Lancache, and in particular lancache-dns, is not currently enabled for IPv6. Therefore we recommend checking your LAN Party network and ensuring that if you are providing or allowing IPv6 DNS servers, that clients are not able to get the external v6 address for the major CDNs. If they do get a "none poisoned" IP via IPv6 then they will go direct to the internet for the files and bypass the cache totally.
+
+Future support for IPv6 is being investigated but is at an early stage.
