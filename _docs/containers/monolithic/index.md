@@ -27,7 +27,7 @@ This is the best container to use for all game caching and should be used for St
 
 You need to be able to redirect HTTP traffic to this container. The easiest way to do this is to replace the DNS entries for the various game services with your cache server.
 
-You can use the [lancache-dns](https://hub.docker.com/r/lancachenet/lancache-dns/) docker image to do this or you can use a DNS service already on your network see the [lancache-dns](/docs/containers/lancache-dns/) for more information.
+You can use the [lancache-dns docker](https://hub.docker.com/r/lancachenet/lancache-dns/) image to do this or you can use a DNS service already on your network see the [lancache-dns](/docs/containers/dns/) for more information.
 
 For the cache files to persist you will need to mount a directory on the host machine into the container. You can do this using `-v <path on host>:/data/cache`. You can do the same with a logs directory as well if you want logs to be persistent as well.
 
