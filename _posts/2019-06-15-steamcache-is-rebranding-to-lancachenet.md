@@ -6,7 +6,7 @@ version: epic
 categories: [cdn,release]
 ---
 
-As many of you know I'm one of the small team of maintainers on the steamcache/* docker images (along with @mintopia @GotenXiao @Lepidopterist @Mohero and @Astrolox). For some time now we have felt that we have long outgrown our steamcache roots and perhaps it was time to rebrand to the generic gaming cache which we now provide. After much consideration and some discussions with Multiplay and ChurchNerd we are proud to rebrand with immediate effect to LanCache.Net
+As many of you know I'm one of the small team of maintainers on the steamcache/* docker images (along with @mintopia @GotenXiao @Lepidopterist @JasonRivers and @Astrolox). For some time now we have felt that we have long outgrown our steamcache roots and perhaps it was time to rebrand to the generic gaming cache which we now provide. After much consideration and some discussions with Multiplay and ChurchNerd we are proud to rebrand with immediate effect to LanCache.Net
 
 
 
