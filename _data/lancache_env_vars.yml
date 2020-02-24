@@ -1,0 +1,145 @@
+# Variables provided by Jekyll core
+#
+#   name:           : name of the variable
+#   description:    : content returned by the varialble
+#
+#   We might be able to repurpose this to handle env variables?
+
+monolithic:
+  - name: CACHE_DOMAINS_REPO
+    description: >-
+      The github repo url for the cache_domains files to use to populate the cdn maps, if you do not want to use the recomended source for testing purposes.
+    default: https://github.com/uklans/cache-domains.git
+  - name: CACHE_DOMAINS_BRANCH
+    description: >-
+      The branch of the CACHE_DOMAINS_REPO to use
+    default: master
+  - name: NOFETCH
+    description: >-
+      Turn off all git pull operations and use stored data
+    default: false
+  - name: UPSTREAM_DNS
+    description: >-
+      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
+    default: 8.8.8.8 8.8.4.4
+  - name: CACHE_MEM_SIZE
+    description: >-
+      The amount of memory the container should use for caching data
+    default: 500m
+  - name: CACHE_DISK_SIZE
+    description: >-
+      The amount of disk space the container should use for caching data
+    default: 1000000m
+  - name: CACHE_MAX_AGE
+    description: >-
+      The maximum amount of time a file should be held in cache. There is usually no reason to reduce this - the cache will automatically remove the oldest content if it needs the space.
+    default: 3560d
+
+monolithic-advanced:
+  - name: NGINX_WORKER_PROCESSES
+    description: >-
+    default: auto
+  - name: GENERICCACHE_VERSION
+    description: >-
+      Internal reference version. DO NOT CHANGE THIS.
+    default: 2
+  - name: WEBUSER
+    description: >-
+      Account NGINX runs under
+    default: www-data
+  - name: BEAT_TIME
+    description: >-
+      How often the internal heart beat process runs
+    default: 1h
+  - name: LOGFILE_RETENTION
+    description: >-
+    default: 3560
+  - name: NGINX_WORKER_PROCESSES
+    description: >-
+    default: 16
+  - name: CACHE_SLICE_SIZE
+    description: >-
+      See <a href="/docs/advanced/tuning-cache/#b---tweaking-slice-size">this guide</a> before changing this. It WILL invalidate any currently cached data.
+    default: 1m
+  - name: CACHE_MODE
+    description: >-
+    default: generic
+
+# note some of these are duplicates of monolithic
+generic:
+  - name: UPSTREAM_DNS
+    description: >-
+      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
+    default: 8.8.8.8 8.8.4.4
+  - name: CACHE_MEM_SIZE
+    description: >-
+      The amount of memory the container should use for caching data
+    default: 500m
+  - name: CACHE_DISK_SIZE
+    description: >-
+      The amount of disk space the container should use for caching data
+    default: 1000000m
+  - name: CACHE_MAX_AGE
+    description: >-
+      The maximum amount of time a file should be held in cache. There is usually no reason to reduce this - the cache will automatically remove the oldest content if it needs the space.
+    default: 3560d
+
+generic-advanced:
+  - name: GENERICCACHE_VERSION
+    description: >-
+      Internal reference version. DO NOT CHANGE THIS.
+    default: 2
+  - name: WEBUSER
+    description: >-
+      Account NGINX runs under
+    default: www-data
+  - name: BEAT_TIME
+    description: >-
+      How often the internal heart beat process runs
+    default: 1h
+  - name: LOGFILE_RETENTION
+    description: >-
+    default: 3560
+  - name: NGINX_WORKER_PROCESSES
+    description: >-
+    default: 16
+  - name: CACHE_SLICE_SIZE
+    description: >-
+      See https://www.lancache.net/docs/advanced/tuning-cache/#b---tweaking-slice-size before changing this. It WILL invalidate any currently cached data.
+    default: 1m
+  - name: CACHE_MODE
+    description: >-
+    default: generic
+
+lancache-dns:
+  - name: CACHE_DOMAINS_REPO
+    description: >-
+      The github repo url for the cache_domains files to use to populate the cdn maps, if you do not want to use the recomended source for testing purposes.
+    default: https://github.com/uklans/cache-domains.git
+  - name: CACHE_DOMAINS_BRANCH
+    description: >-
+      The branch of the CACHE_DOMAINS_REPO to use
+    default: master
+  - name: UPSTREAM_DNS
+    description: >-
+      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
+    default: 8.8.8.8
+
+lancache-dns-advanced:
+  - name: STEAMCACHE_DNS_VERSION
+    description: >-
+      Internal reference version. DO NOT CHANGE THIS.
+    default: 1
+  - name: ENABLE_DNSSEC_VALIDATION
+    description: >-
+    default: false
+  - name: LANCACHE_DNSDOMAIN
+    description: >-
+      Internaly used top level domain within the DNS RPZ structure for CNAMES. Should be largely invisible to end users.
+    default: cache.lancache.net
+
+sniproxy:
+  - name: UPSTREAM_DNS
+    description: >-
+      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
+    default: 8.8.8.8 8.8.4.4

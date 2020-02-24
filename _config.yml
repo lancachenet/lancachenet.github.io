@@ -1,0 +1,59 @@
+---
+version: 2.0.0
+title: LanCache.NET
+name: LanCache.NET
+description: LAN Party game caching made easy
+url: https://lancache.net
+repository: https://github.com/lancachenet
+timezone: Europe/London
+twitter:
+  username: lancachenet
+logo: "/img/lancache-fulllogo.svg"
+google_analytics_id: 
+google_site_verification: 
+collections:
+  docs:
+    permalink: "/:collection/:path/"
+    output: true
+  posts:
+    permalink: "/news/:year/:month/:day/:title/"
+    output: true
+defaults:
+- scope:
+    path: _docs
+    type: docs
+  values:
+    layout: docs
+- scope:
+    path: _posts
+    type: posts
+  values:
+    layout: news_item
+- scope:
+    path: ''
+  values:
+    image: "/img/jekyll-og.png"
+future: true
+plugins:
+- jekyll-avatar
+- jekyll-feed
+- jekyll-mentions
+- jekyll-redirect-from
+- jekyll-seo-tag
+- jekyll-sitemap
+- jemoji
+feed:
+  categories:
+  - release
+kramdown:
+  syntax_highlighter_opts:
+    default_lang: plaintext
+sass:
+  style: compressed
+strict_front_matter: true
+exclude:
+- ".gitignore"
+- ".jekyll-cache"
+- CNAME
+- icomoon-selection.json
+- README.md

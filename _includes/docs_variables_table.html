@@ -1,0 +1,21 @@
+<div class="mobile-side-scroller">
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for var in include.scope %}
+    <tr>
+      <td rowspan="2"><p><code>{{ var.name }}</code></p></td>
+      <td><p>{{- var.description -}}</p></td>
+    </tr>
+	<tr>
+		<td><p><b>Default:</b>&nbsp;&nbsp;<code>{{ var.default }}</code></p></td>
+	</tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
