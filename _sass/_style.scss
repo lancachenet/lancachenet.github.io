@@ -278,6 +278,7 @@ footer {
     font-size: 12px;
     display: block;
     margin: 0 0 -30px;
+    overflow-wrap: break-word;
   }
 
   .button {
@@ -632,7 +633,10 @@ aside {
   .content { padding: 0; }
 
   p { text-align: justify; }
-  .code p { text-align: left; }
+  .code p { 
+    text-align: left; 
+    overflow-wrap: break-word;
+  }
 }
 
 .section-nav {
@@ -812,7 +816,10 @@ article h2:first-child { margin-top: 0; }
 
 .standalone {
 	p { text-align: justify; }
-	.code p { text-align: left; }
+	.code p { 
+            text-align: left; 
+            overflow-wrap: break-word;
+        }
 }
 /* Code Highlighting */
 
@@ -867,6 +874,7 @@ h5 > code,
 }
 
 .code-block {
+  overflow-wrap: break-word;
   margin: 10px 0;
   code { background: none; }
 }
