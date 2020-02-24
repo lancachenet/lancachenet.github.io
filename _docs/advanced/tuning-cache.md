@@ -9,7 +9,14 @@ Cache performance is a complicated and lengthy topic.
 
 By far the biggest factor is the hardware of the cache box. See [hardware](/docs/hardware/) for more information. Improving the hardware is likely to have a much bigger effect than anything else listed on this page.
 
-That being said, there are 2 things you can look at doing when dealing with a slower than expected performance issue. Beware, these areas are not for novice users.
+That being said, there are 2 things you can look at doing when dealing with a slower than expected performance issue.
+
+    <div class="note info">
+    <h5>Advanced Steps</h5>
+    <p>
+    Beware, these steps are aimed at more experienced users and could cause you more problems if not implemented carefully.
+    </p>
+    </div>
 
 ## A - Adding additional IPs
 
