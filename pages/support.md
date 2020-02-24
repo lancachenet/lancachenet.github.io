@@ -1,6 +1,6 @@
 ---
 title: Support
-permalink: "/docs/support/"
+permalink: "/support/"
 draft: true
 ---
 
