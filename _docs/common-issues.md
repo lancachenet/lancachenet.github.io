@@ -16,3 +16,12 @@ If your cache host is running a recent Linux distribution, it is likely running 
 1. Run `sudo ln -s /var/run/systemd/resolve/resolv.conf /etc/resolv.conf`
 1. Run `sudo service systemd-resolved restart`
 1. Check that you can still resolve DNS on the cache server by running `nslookup` for a domain of your choice (e.g. `lancache.net`)
+
+## Unraid Port Bindings
+
+Unraid provides network storage, virtual machines and docker functionality and on the face of it seems a great platform for running up your lancache. However people often run into problems with ports. To use lancache you need to have unchalenged access to:
+* Port 80: where HTTP content is requested.
+* Port 443: so that HTTPS is handeled.
+* Port 53: so that DNS requests can be directed.
+
+These are usually in heavy rotation by the unraid UI. While some users have managed to add another IP and move some services arround there is an easier way. Simply run up an unbuntu VM on unraid. You can assign an uncontested IP to your VM with ease and now you are on the "happy path" for install. Use the Separation of Concerns principle and put your caching all inside one easy to operate wrapped up VM of its own.
