@@ -32,7 +32,7 @@ defaults:
 - scope:
     path: ''
   values:
-      image: "/img/lancache-fulllogo.svg"
+      image: "/img/lancache-fulllogo.png"
 future: true
 plugins:
 - jekyll-avatar
