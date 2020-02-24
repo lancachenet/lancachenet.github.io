@@ -20,7 +20,7 @@ Served ~2,800 uniques, peaking at 10Gbps
 
 ## Medium capacity
 
-24 CPU core, 180GB memory, 5 x 900GB 15K SAS drives, plus 180GB SSD (lvmcache)
+24 CPU core, 180GB memory, 7 x 2TB 15K SAS drives, plus 2TB SSD (lvmcache)
 Served ~250 uniques, peaking at 1.8Gbps
 
 ## Low capacity
