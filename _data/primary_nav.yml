@@ -10,6 +10,9 @@
 - title: Showcase
   link: /showcase/
   show_on_mobile: false
+- title: Support
+  link: /docs/support/
+  show_on_mobile: false
 - title: News
   link: /news/
   show_on_mobile: true

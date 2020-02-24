@@ -2,6 +2,7 @@
 
  html {
    box-sizing: border-box;
+   overflow-y: scroll;
  }
 
  *,
@@ -291,6 +292,7 @@ footer {
     height: 180px;
     font-size: 20px;
     border: 1px solid lighten(#E91D12,20%);
+	border-image: linear-gradient(red, transparent) 1;
 
     background-image: linear-gradient(bottom, darken(#E91D12,10%) 0%, lighten(#E91D12,0%) 100%);
     background-image: -o-linear-gradient(bottom, darken(#E91D12,10%) 0%, lighten(#E91D12,0%) 100%);
@@ -318,22 +320,40 @@ footer {
 
   @keyframes click {
   	0% {
+   		transform: translate(0, 0);
+  	}
+  	45% {
     	transform: translate(0, 0);
   	}
 
   	/* Finish changes by here */
-  	5% {
+  	50% {
   	    transform: translate(1px, 2px);
   	}
 
-	10% {
+	55% {
 		transform: translate(0px, 0px);
 	}
 
-  	/* Between 20% and 100%, nothing changes */
-  	100% {
+  	0% {
    		transform: translate(0, 0);
   	}
+  }
+
+  .button:hover {
+	background-image: linear-gradient(bottom, darken(#E91D12,5%) 0%, lighten(#E91D12,5%) 100%);
+    background-image: -o-linear-gradient(bottom, darken(#E91D12,5%) 0%, lighten(#E91D12,5%) 100%);
+    background-image: -moz-linear-gradient(bottom, darken(#E91D12,5%) 0%, lighten(#E91D12,5%) 100%);
+    background-image: -webkit-linear-gradient(bottom, darken(#E91D12,5%) 0%, lighten(#E91D12,5%) 100%);
+    background-image: -ms-linear-gradient(bottom, darken(#E91D12,5%) 0%, lighten(#E91D12,5%) 100%);
+ 
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, darken(#E91D12,5%)),
+        color-stop(1, lighten(#E91D12,5%))
+    );
   }
 
   .button:active {
@@ -355,19 +375,20 @@ footer {
     -moz-box-shadow: 1px 2px 0px darken(#E91D12,30%), 0px 1px 6px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
     box-shadow: 1px 2px 0px darken(#E91D12,30%), 0px 1px 6px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px ;
 
-    -webkit-transform: translate(2px, 4px);
-    -moz-transform: translate(2px, 4px);
-    transform: translate(2px, 4px);
+    -webkit-transform: translate(1px, 2px);
+    -moz-transform: translate(1px, 2px);
+    transform: translate(1px, 2px);
+	
+	animation:none;
+	border-image: linear-gradient(red, transparent) 1;
 
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 825px) {
   .quickstart {
-
     .code {
       font-size: 18px;
-      margin: -30px 0;
       float: right;
     }
 
@@ -376,6 +397,35 @@ footer {
       text-align: center;
     }
   }
+}
+
+@media (min-width: 1000px) {
+  .quickstart {
+    .code {
+      margin: -30px 0;
+    }
+
+    h3 {
+      margin: 30px 0 0;
+    }
+  }
+}
+
+@media screen and (max-width: 999px) {
+  /* Stack anything that isn't full-width on smaller screens
+     and doesn't provide the no-stacking-on-mobiles class */
+	.quickstart {
+	  .grid:not(.no-stacking-on-mobiles) > .unit {
+	    width: 100% !important;
+	    padding-left: 20px;
+	    padding-right: 20px;
+	  }
+	  .center-on-mobiles {
+		  text-align: center !important;
+	  }
+
+  }
+
 }
 
 /* Code */
