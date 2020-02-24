@@ -9,7 +9,10 @@ redirect_from:
 
 ## Prerequisites
 
-* See [requirements](/docs/installation#requirements)
+The best and quickest way is to get started with lancache.net is to use the quickstart. Before you begin make sure you have: 
+
+* A modern Linux distribution supporting Docker, eg [Ubuntu](https://www.ubuntu.com) or [CentOS](https://www.centos.org/)
+* [Docker](https://www.docker.com/)
 
 ## The Simplest Method
 
@@ -55,4 +58,16 @@ When you edit the .env file most users are going to need to make the following c
 * CACHE_ROOT is where you want to store the cached data. For best practice we recommend a mount point on a separate volume from your OS.
 * CACHE_DISK_SIZE ensure this matches the size of the volume you have the cache root on. Remember to leave some space availaible. (For very large sizes you should understand what CACHE_MEM_SIZE does)
 
-If you want to play with advanced installation and further configuration options we recommend starting with the [Installation](/docs/installation/) page.
+<div class="note info">
+	<h5>Common Issues</h5>
+    <p>
+    	Be sure to check the <a href="/docs/common-issues/">common issues</a> page if you have any problems setting up your server.    
+    </p>
+</div>
+
+## More Advanced Information
+If you want to play with advanced installation and further configuration options we recommend starting with one of the guides below. For detailed install instructions have a look at one of the following guides.
+
+* [docker-compose](/docs/installation/docker-compose/)
+* [Manual docker](/docs/installation/docker/)
+{% comment %}* [Step by step](/docs/step-by-step/01-setup/) {% endcomment %}
