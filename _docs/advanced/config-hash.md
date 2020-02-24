@@ -15,10 +15,11 @@ There are various settings in the Lancache cache containers which will invalidat
     Checking cache configuration
     Detected existing cache, checking config hash for consistency
     Could not find CONFIGHASH for existing cachedata
-    This is either an upgrade from an older instance of Lancache or CONFIGHASH has been deleted intentionally
+    This is either an upgrade from an older instance of Lancache or CONFIGHASH has been deleted 
+    intentionally
     
     Creating CONFIGHASH from current live configuration
-     Current:  GENERICCACHE_VERSION=2;CACHE_MODE=generic;CACHE_SLICE_SIZE=1m;CACHE_KEY=$uri$slice_range;
+     Current:  GENERICCACHE_VERSION=2;CACHE_SLICE_SIZE=1m;CACHE_KEY=$uri$slice_range;
    
     See: https://lancache.net/docs/advanced/config-hash/ for more details
 ```
@@ -28,8 +29,8 @@ There are various settings in the Lancache cache containers which will invalidat
     Checking cache configuration
     Detected existing cache, checking config hash for consistency
     Detected CONFIGHASH does not match current CONFIGHASH
-     Detected: GENERICCACHE_VERSION=2;CACHE_MODE=generic;CACHE_SLICE_SIZE=1m;CACHE_KEY=$uri$slice_range;
-     Current:  GENERICCACHE_VERSION=2;CACHE_MODE=generic;CACHE_SLICE_SIZE=2m;CACHE_KEY=$uri$slice_range;
+     Detected: GENERICCACHE_VERSION=2;CACHE_SLICE_SIZE=1m;CACHE_KEY=$uri$slice_range;
+     Current:  GENERICCACHE_VERSION=2;CACHE_SLICE_SIZE=2m;CACHE_KEY=$uri$slice_range;
     
     ABORTING STARTUP TO AVOID POTENTIALLY INVALIDATING THE CACHE
     
