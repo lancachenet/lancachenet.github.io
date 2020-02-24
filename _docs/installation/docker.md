@@ -13,17 +13,21 @@ The best and quickest way is to get started with lancache.net is to use the [qui
 
 ## Simple Full Stack startup
 
-To initialise a full caching setup with dns and sni proxy you can use the following script as a starting point:
+To initialise a full caching setup with dns and sni proxy you can use the following commands as a starting point:
 
-```
+<div class="note">
+  <h5>Double Check</h5>
+  <p>Please check that `hostname -I` returns the correct IP before running this snippet!
+  </p>
+</div>
+
+```sh
 export HOST_IP=`hostname -I | cut -d' ' -f1`
 docker run --restart unless-stopped --name lancache-dns --detach -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=$HOST_IP lancachenet/lancache-dns:latest
 docker run --restart unless-stopped --name lancache --detach -v /cache/data:/data/cache -v /cache/logs:/data/logs -p 80:80  lancachenet/monolithic:latest
 docker run --restart unless-stopped --name sniproxy --detach -p 443:443 lancachenet/sniproxy:latest
 echo Please configure your router/dhcp server to serve dns as $HOST_IP
 ```
-
-Please check that `hostname -I` returns the correct IP before running this snippet
 
 ## Configuring your firewall
 
