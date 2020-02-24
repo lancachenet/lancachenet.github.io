@@ -37,7 +37,7 @@ The ideal solution when deploying lancache.net is to distribute the IP of your l
 
 ## Testing your cache
 
-Now you've configured your dns, started that stack and are ready to test things are operating. Here's some very basic diagnostics and tests we would suggest to run to see if things are working. For more advanced tools and techniques head on over to [diagnostics](/docs/diagnostics/)
+Now you've configured your dns, started that stack and are ready to test things are operating. Here's some very basic diagnostics and tests we would suggest to run to see if things are working.
 
 1. Check your dns is being intercepted
 
@@ -56,7 +56,7 @@ nslookup lancache.steamcontent.com
     <div class="note info">
     <h5>Why do we cache</h5>
     <p>
-    We cache traffic in order to provide benefit to many users in a large environment. LanCache is optimised for hundreds to thousands of gamers downloading at once not one or two users on a small scale. The emphasis is always on superior cached performance over uncached. <a href="/docs/caching-101/">Learn more &rarr;</a>
+    We cache traffic in order to provide benefit to many users in a large environment. LanCache is optimised for hundreds to thousands of gamers downloading at once not one or two users on a small scale. The emphasis is always on superior cached performance over uncached.
     </p>
     </div>
 

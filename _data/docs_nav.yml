@@ -3,6 +3,8 @@
 - title: Getting Started
   docs:
     - link: /docs/
+    - link: /docs/installation/docker-compose/
+    - link: /docs/installation/docker/
 #    - link: /docs/installation/
 #    - link: /docs/step-by-step/01-setup/
     - link: /docs/faq/

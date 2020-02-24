@@ -1,5 +1,5 @@
 ---
-title: Docker-compose
+title: Docker-Compose
 description: Official guide to install lancache.net
 permalink: /docs/installation/docker-compose/
 ---
@@ -47,7 +47,7 @@ Once lancache-dns and monolithic are up and running you need to configure your r
 The ideal solution when deploying lancache.net is to distribute the IP of your lancache-dns server via dhcp. Many commercial routers will have an option under __LAN settings__ (or similar) to change the _DNS Server IP_. Unfortunately not all consumer brand routers are so versatile so if you cannot find a LAN DNS setting you can use the WAN settings instead. There are many different makes and models of router and each is configured differently. We have put together a guide for some common makes and models which can be found [here](/docs/installation/routers/)
 
 ## Testing your cache
-Now you've configured your dns, started that stack and are ready to test things are operating. Here's some very basic diagnostics and tests we would suggest to run to see if things are working. For more advanced tools and techniques head on over to [diagnostics](/docs/diagnostics/)
+Now you've configured your dns, started that stack and are ready to test things are operating. Here's some very basic diagnostics and tests we would suggest to run to see if things are working.
 
 1. Check your dns is being intercepted
 * Run a few queries using command prompt to check that your dns is pointing at your cache, the following should all result in your cache ip if everything is working
@@ -63,7 +63,7 @@ nslookup lancache.steamcontent.com
     <div class="note info">      
     <h5>Why do we cache</h5>   
     <p>
-    We cache traffic in order to provide benefit to many users in a large environment. LanCache is optimised for hundreds to thousands of gamers downloading at once not one or two users on a small scale. The emphasis is always on superior cached performance over uncached. <a href="/docs/caching-101/">Learn more &rarr;</a>
+    We cache traffic in order to provide benefit to many users in a large environment. LanCache is optimised for hundreds to thousands of gamers downloading at once not one or two users on a small scale. The emphasis is always on superior cached performance over uncached.
     </p>
     </div>                          
 
