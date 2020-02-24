@@ -59,7 +59,7 @@ monolithic-advanced:
     default: 16
   - name: CACHE_SLICE_SIZE
     description: >-
-      See https://www.lancache.net/docs/advanced/tuning-cache/#b---tweaking-slice-size before changing this. It WILL invalidate any currently cached data.
+      See [this guide](/docs/advanced/tuning-cache/#b---tweaking-slice-size) before changing this. It WILL invalidate any currently cached data.
     default: 1m
   - name: CACHE_MODE
     description: >-
