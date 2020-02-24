@@ -3,6 +3,8 @@ title: FAQ
 permalink: "/docs/faq/"
 ---
 
+{% include toc.html %}
+
 ## What is a LAN Cache or Steam Cache?
 
 A Steam Cache or LAN Cache is a way of speeding up Steam or other content downloads on a local area network for multiple users.

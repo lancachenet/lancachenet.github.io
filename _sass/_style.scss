@@ -915,6 +915,20 @@ p { line-height: 1.5em; }
 .align-left { text-align: left; }
 .align-center { text-align: center; }
 
+/* TOC */
+
+div#toc {
+    border: 1px solid #c00 !important;
+    border-radius: 10px;
+    background-color: #302c34;
+    padding: 5px;
+	margin-top: 15px;
+
+	a {
+		font-size: 20px;
+	}
+}
+
 /* Article HTML */
 
 article {
@@ -1382,3 +1396,7 @@ code.output {
 ol div.highlighter-rouge {
   margin: 8px 0 10px 0;
 }
+
+
+
+
