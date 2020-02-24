@@ -1,7 +1,7 @@
 ---
 title: Docker Manual
 description: Official guide to install lancache.net
-permalink: /docs/installation/docker-manual/
+permalink: /docs/installation/docker/
 ---
 
 The best and quickest way is to get started with lancache.net is to use the [quickstart](/docs/home/). The below guides give more information on how to implement these containers without using docker-compose if you have a specific reason not to do so.
