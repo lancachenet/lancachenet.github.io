@@ -10,7 +10,7 @@ There are several options specified in the default `.env` for you to work throug
 <div class="note info">      
 <h5>Don't forget the basics</h5>   
 <p>
-You *MUST* set at least `LANCACHE_IP` and `DNS_BIND_IP`. It is highly recommended that you change `CACHE_ROOT` to a folder of your choosing, and set [`CACHE_DISK_SIZE`](#cache_disk_size) to a value that suits your storage capacity.
+You *MUST* set at least <code><a href="#LANCACHE_IP">LANCACHE_IP</a></code> and <code><a href="#DNS_BIND_IP">DNS_BIND_IP</a></code>. It is highly recommended that you change <code><a href="CACHE_ROOT">CACHE_ROOT</a></code> to a folder of your choosing, and set <code><a href="cache_disk_size">CACHE_DISK_SIZE</a></code> to a value that suits your storage capacity.
 </p>
 </div>                          
 
