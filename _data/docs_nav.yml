@@ -41,5 +41,6 @@
 #    - link: /docs/advanced/dns/
 #    - link: /docs/advanced/cdn-capture/
     - link: /docs/advanced/tuning-cache/
+    - link: /docs/advanced/config-hash/
 #    - link: /docs/advanced/rancher/
 #    - link: /docs/advanced/squid/
