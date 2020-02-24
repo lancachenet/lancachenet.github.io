@@ -1,6 +1,6 @@
 ---                                                 
 title: 'Steam client now supports lancache!'
-date: 2019-06-15 09:00:00 -0000
+date: 2020-01-14 09:00:00 -0000
 author: mintopia
 version: steam
 categories: [cdn,release]
