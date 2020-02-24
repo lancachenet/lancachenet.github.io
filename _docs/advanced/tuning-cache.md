@@ -70,7 +70,7 @@ In addition to the above - changing the slice size will make most of the existin
 
 For example, If you had an 8.5MB file you originally downloaded with a 1m slice size, and you change the slice size to 4m, the first 8 slices will be invalidated, but the last 0.5MB slice will still be valid. If you changed the slice size to 6MB, all pieces would be invalidated.
 
-We are adding a hash check on Monolithic startup to identify whether various cache parameters that may invalidate the cache have changed since last run and throw an error. This will then force you to run with an override environment variable to proceed.
+We are adding a hash check on Monolithic startup to identify whether various cache parameters that may invalidate the cache have changed since last run and throw an error. This will then force you to run with an override environment variable to proceed. See [this page](/docs/advance/config-hash/) for more information on the override.
 
 Our longer term plan will be to default to (most likely) an 8MB slice size after more extensive testing.
 
