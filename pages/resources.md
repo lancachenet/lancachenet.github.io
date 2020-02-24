@@ -8,25 +8,19 @@ redirect_from:
 Organisers of LAN events and gaming cafe's have been working on the problem of caching game traffic for years. Particular thanks goes to Multiplay for starting work on "LanCache" all those years ago! We've collated a set of useful links to other projects in the community
 
 ## Caching Systems
-- ZPH
-- Open Source Lan
-- ?
+- [ZeroPingHeroes](https://github.com/zeropingheroes/lancache)
+- [Open Source Lan](http://opensourcelan.com/)
 
-## Cache Fillers
-- ZPH
-- ?
-
-## Guides
-- ?
-- ?
+## Cache Priming
+- [ZeroPingHeroes](https://github.com/zeropingheroes/lancache-autofill)
 
 ## Organisations
-- UKLans
-- Open Source Lan
+- [UKLans](https://uklans.net)
+- [Open Source Lan](http://opensourcelan.com/)
 
 ## Historical
-- Multiplay LanCache (Where it all started)
-- anyone else?
+- [Multiplay LanCache (Where it all started)](https://github.com/multiplay/lancache)
+
 
 
 
