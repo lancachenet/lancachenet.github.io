@@ -31,9 +31,9 @@ These are the steps that the lancache solution helps provide. Understanding thes
 ## Lancache Example
 
 Having followed the installation guide we now have a linux server with plenty of memory, cpu cores and fast disk storage. On it we have three services running in docker.
-* Lancache-DNS: this service is aware of which requested domains should be directed to the cache and which should be passed on the internet.
-* Lancache: This component does the heavy lifting. It fetches content from the internet, slices it up and stores it to disk. Then it passes a copy of the content to the requester and will hand out additional copies when other clients also request the same data.
-* SNI Proxy: In some cases the location in the internet that stores the game and provides HTTP access, also has some HTTPS content that is required under the same named address. This component listens for HTTPS content requests and securely forwards them to the original server.
+* [Lancache-DNS]({% link _docs/containers/dns/index.md%}): this service is aware of which requested domains should be directed to the cache and which should be passed on the internet.
+* [Lancache]({% link _docs/containers/monolithic/index.md %}): This component does the heavy lifting. It fetches content from the internet, slices it up and stores it to disk. Then it passes a copy of the content to the requester and will hand out additional copies when other clients also request the same data.
+* [SNI Proxy]({% link _docs/containers/sniproxy/index.md %}): In some cases the location in the internet that stores the game and provides HTTP access, also has some HTTPS content that is required under the same named address. This component listens for HTTPS content requests and securely forwards them to the original server.
 
 The next installation step is physical. Our server needs to be connected to the network. We will do this at the core switch. The reason it goes there is that it provides access to clients and the router in a central location. It also gives the best options for optimising traffic within our network in more advanced cases.
 
