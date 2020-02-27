@@ -66,7 +66,7 @@ monolithic-advanced:
     default: generic
   - name: FORCE_PERMS_CHECK
     description: >-
-      Force a full permissions check on startup.  When the container starts up normally, it checks a few key locations to ensure that they are owned by the correct user.  This will force the container to do a full check of all cache directories and files.  THIS WILL BE VERY SLOW, AND MAY POSSIBLY TAKE HOURS.
+      Force a full permissions check on startup.  When the container starts up normally, it checks a few key locations to ensure that they are owned by the correct user.  This option will force the container to do a full check of all cache directories and files.  THIS WILL BE VERY SLOW, AND MAY POSSIBLY TAKE HOURS.
     default: false
 
 
