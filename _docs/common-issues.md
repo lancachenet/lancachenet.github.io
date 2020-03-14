@@ -42,3 +42,13 @@ It worth remembering that your cache is aiming to provide for many people and th
 Lancache, and in particular lancache-dns, is not currently enabled for IPv6. Therefore we recommend checking your LAN Party network and ensuring that if you are providing or allowing IPv6 DNS servers, that clients are not able to get the external v6 address for the major CDNs. If they do get a "none poisoned" IP via IPv6 then they will go direct to the internet for the files and bypass the cache totally.
 
 Future support for IPv6 is being investigated but is at an early stage.
+
+## None RFC1918 IP Ranges
+
+Several of the most popular game clients/launchers, including Steam Origin and Riot, only work properly if they detect the cache is on an RFC1918 private IP address (i.e 10.0.0.0/8, 172.16.0.0/12 or 192.168.0.0/16). 
+
+The clients have built in logic that will ONLY enable their built in TLS downgrade / HTTP fallback modes if the hostnames they are connecting to resolve to an RFC1918 private address. If the hostnames resolve to a public IP range (even if that range sits on your local network) the client will use encryption and thus lancache will not be able to cache the traffic.
+
+As this is built in logic from the games companies, there is no work around for this situation. However even if your local network is setup to give client machines a public ip address, you can still setup lancache on a private IP and configure your router to perform the appropriate routing or NAT locally - it is only the hostnames pointing to the lancache itself that must resolve to a private IP and it does not matter what IP space the clients use.
+
+The exact reason for this logic is know only to the game companies in question, but it is likely a failsafe measure to ensure that they are only downgrading to none encrypted communication when they can be 100% sure they are talking to a local cache and not sending unencrypted traffic over the internet to a public ip that could be anywhere.
