@@ -43,7 +43,7 @@ Lancache, and in particular lancache-dns, is not currently enabled for IPv6. The
 
 Future support for IPv6 is being investigated but is at an early stage.
 
-## None RFC1918 IP Ranges
+## Non-RFC1918 IP Ranges
 
 Several of the most popular game clients/launchers, including Steam Origin and Riot, only work properly if they detect the cache is on an RFC1918 private IP address (i.e 10.0.0.0/8, 172.16.0.0/12 or 192.168.0.0/16). 
 
@@ -51,4 +51,4 @@ The clients have built in logic that will ONLY enable their built in TLS downgra
 
 As this is built in logic from the games companies, there is no work around for this situation. However even if your local network is setup to give client machines a public ip address, you can still setup lancache on a private IP and configure your router to perform the appropriate routing or NAT locally - it is only the hostnames pointing to the lancache itself that must resolve to a private IP and it does not matter what IP space the clients use.
 
-The exact reason for this logic is know only to the game companies in question, but it is likely a failsafe measure to ensure that they are only downgrading to none encrypted communication when they can be 100% sure they are talking to a local cache and not sending unencrypted traffic over the internet to a public ip that could be anywhere.
+The exact reason for this logic is known only to the game companies in question, but it is likely a failsafe measure to ensure that they are only downgrading to none encrypted communication when they can be 100% sure they are talking to a local cache and not sending unencrypted traffic over the internet to a public ip that could be anywhere.
