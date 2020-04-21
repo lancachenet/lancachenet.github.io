@@ -82,3 +82,7 @@ Other options also involve transparently intercepting HTTP traffic at a network 
 ## Can I load some content into the cache ahead of my event?
 
 You could look at [zeropingheroes/lancache-autofill](https://github.com/zeropingheroes/lancache-autofill) as an aide to pre-loading popular games into the cache ahead of time to help kick start the cache
+
+## Can I install lancache on my NAS?
+
+Many users are interested in installing Lancache on their Unraid, QNAP, Synology or other home NAS solution. While there are several unofficial solutions floating around based on our work we have had no input into them and have seen a number of errors. Consumer NAS solutions often use ports 80 and 443 for their own UI and while you can work around these issues it often causes problems. If you wish to use this sort of hardware then we strongly recommend building a VM (virtual machine) on the device if you are able, you are then in the "happy path" for all our documentation and support.
