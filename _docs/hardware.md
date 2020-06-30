@@ -40,13 +40,13 @@ performance that you can expect from varying hardware setups.
 * 8 CPU core
 * 16GB DDR3
 * 2TB HDD + 512GB SSD LVM Cache.
-* Without the LVM Cache the system will push around 300-400mb/s, with the SSD Cache pushing around 800-900mb/s
+* Without the LVM Cache the system will push around 300-400Mbps, with the SSD Cache pushing around 800-900Mbps
 
 ## Home Hardware
 
 "Me and my < Wife/Husband/Bother/Sister/Extremely well trained cat> both play < insert game >""
 
-Regular commodity hardware (a single 2TB WD Black on an HP Microserver) can achieve peak throughputs of ~30MB/s using this setup (depending on the specific content being served).  This would also be suitable for very small LANs (<10 people).  For any sort of hosting for LAN sizes above this, it is thoroughly recommended that your storage backend is entirely SSD or NVMe.
+Regular commodity hardware (a single 2TB WD Black on an HP Microserver) can achieve peak throughputs of ~240Mbps using this setup (depending on the specific content being served).  This would also be suitable for very small LANs (<10 people).  For any sort of hosting for LAN sizes above this, it is thoroughly recommended that your storage backend is entirely SSD or NVMe.
 
 
 ## One more thing ...
@@ -57,6 +57,6 @@ Regular commodity hardware (a single 2TB WD Black on an HP Microserver) can achi
 * 128GB memory
 * 8TB of nvme
 * quad 40Gbit NIC
-* peaking at 53.9Gbit/s
+* peaking at 53.9Gbps
 
 see [here](https://dreamhack.com/anaheim/top-news/anaheim-you-were-awesome/) for details
