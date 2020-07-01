@@ -19,7 +19,7 @@ performance that you can expect from varying hardware setups.
 
 * 24 CPU core, 
 * 140GB memory, 
-* 8 x Samsung 850 Pro SSD in RAID6
+* 8 x Samsung 850 Pro SSD in RAID0
 * Served ~2,800 uniques, 
 * peaking at 10Gbps
 
@@ -28,7 +28,7 @@ performance that you can expect from varying hardware setups.
 "I run the LAN. All my mates come along, in fact i don't even know some of customers by name. My living room doesn't hold these people so we found hire a good size venue"
 * 24 CPU core, 
 * 96GB memory, 
-* 6 x 1TB 15K SAS drives, 
+* 6 x 1TB 15K SAS drives in RAID5, 
 * plus 2TB SSD (lvmcache)
 * Served ~250 uniques, 
 * peaking at 1.8Gbps
@@ -39,7 +39,7 @@ performance that you can expect from varying hardware setups.
 
 * 8 CPU core
 * 16GB DDR3
-* 2TB HDD + 512MB SSD LVM Cache.
+* 2TB HDD + 512GB SSD LVM Cache.
 * Without the LVM Cache the system will push around 300-400Mbps, with the SSD Cache pushing around 800-900Mbps
 
 ## Home Hardware
