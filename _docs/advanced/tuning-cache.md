@@ -22,7 +22,7 @@ Beware, these steps are aimed at more experienced users and could cause you more
 
 ## Adding additional IPs
 
-While it is getting rarer as better client support is now available, some client software has some inherent limitations caused by strict adherence to the HTTP spec connection pool. Because of this, download speed is highly dependent on the latency between your server and the CDN servers. In the event you find your initial download speed with the default settings is slow this may be resolved by allocating more IP's to your cache. We suggest adding one IP at a time to see how much gain can be had (4 has been seen to work for a number of people). The most likely situation for this to help is in larger installs where you have a LAG network connection and are trying to balance many requests over muliple NICs.
+While it is getting rarer as better client support is now available, some client software has some inherent limitations caused by strict adherence to the HTTP spec connection pool. Because of this, download speed is highly dependent on the latency between your server and the CDN servers. In the event you find your initial download speed with the default settings is slow this may be resolved by allocating more IP's to your cache. We suggest adding one IP at a time to see how much gain can be had (4 has been seen to work for a number of people). The most likely situation for this to help is in larger installs where you have a LAG network connection and are trying to balance many requests over multiple NICs.
 
 ### Step 1: Adding IP's to your docker host
 
