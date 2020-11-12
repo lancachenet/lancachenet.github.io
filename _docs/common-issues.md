@@ -7,6 +7,11 @@ There are several issues that frequently crop up when deploying lancache. Here i
 
 {% include toc.html %}
 
+## It's not DNS ...
+
+The most common cache issue we see is incorrectly configured DNS. It is essential that gaming machines only have one dns server assigned, that being lancache. If you have two different ones then the client will use them both and bypass the cache for about half of the requests. While the mechanism operating systems use to choose which dns server to use is complicated it is a suitable summary to say its "at random".
+
+
 ## Disabling systemd-resolved DNSStubListener
 
 If your cache host is running a recent Linux distribution, it is likely running `systemd-resolved`, which listens on port `53`. If you want your cache host to bind to `0.0.0.0:53` (INADDR_ANY, all IPv4 addresses), you will first need to disable `systemd-resolved`'s stub listener.
@@ -52,3 +57,7 @@ The clients have built in logic that will ONLY enable their built in TLS downgra
 As this is built in logic from the games companies, there is no work around for this situation. However even if your local network is setup to give client machines a public ip address, you can still setup lancache on a private IP and configure your router to perform the appropriate routing or NAT locally - it is only the hostnames pointing to the lancache itself that must resolve to a private IP and it does not matter what IP space the clients use.
 
 The exact reason for this logic is known only to the game companies in question, but it is likely a failsafe measure to ensure that they are only downgrading to unencrypted communication when they can be 100% sure they are talking to a local cache and not sending unencrypted traffic over the internet to a public ip that could be anywhere.
+
+## Can't resolve DNS with a Centos 8 server
+
+There appears to be a fault between the inbuilt firewall and docker on some of the linux variants. Centos 8 has this issue and we have also seen it on fedora. As primary advice we suggest that ubuntu is a easy to use linux choice. If you have choosen Centos 8 or similiar on purpose then there are work arounds for the problem. [As described here](https://serverfault.com/questions/987686/no-network-connectivity-to-from-docker-ce-container-on-centos-8) you can use masquerading to combat the problem between nftables, iptables and docker.
