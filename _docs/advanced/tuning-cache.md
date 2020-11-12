@@ -22,7 +22,7 @@ Beware, these steps are aimed at more experienced users and could cause you more
 
 ## Adding additional IPs
 
-Some client software has some inherent limitations caused by strict adherence to the HTTP spec connection pool. Because of this, download speed is highly dependent on the latency between your server and the CDN servers. In the event you find your initial download speed with the default settings is slow this may be resolved by allocating more IP's to your cache. We suggest adding one IP at a time to see how much gain can be had (4 has been seen to work for a number of people).
+While it is getting rarer as better client support is now available, some client software has some inherent limitations caused by strict adherence to the HTTP spec connection pool. Because of this, download speed is highly dependent on the latency between your server and the CDN servers. In the event you find your initial download speed with the default settings is slow this may be resolved by allocating more IP's to your cache. We suggest adding one IP at a time to see how much gain can be had (4 has been seen to work for a number of people). The most likely situation for this to help is in larger installs where you have a LAG network connection and are trying to balance many requests over muliple NICs.
 
 ### Step 1: Adding IP's to your docker host
 
@@ -45,9 +45,9 @@ Choose a game which has not been seen by the cache before (or clear your `/data/
 
 ## Tweaking slice size
 
-Blizzard in particular sees a slower initial download rate through the cache than without (though obviously subsequent downloads are MUCH faster). Testing shows that the Blizzard client does not cope as well as most others with the chunking / slicing configuration for nginx that lancache uses.
+Some situations can see a slower initial download rate through the cache than without (though obviously subsequent downloads are MUCH faster). Testing shows that the client does not cope as well as most others with the chunking / slicing configuration for nginx that lancache uses.
 
-Testing has shown that a modest increase in slice size can help Blizzard downloads in particular.
+Testing has shown that a modest increase in slice size can help downloads. Although it also can considerably reduce the speed in some cases. In the worse cases where a client makes a small range request to a large file the cache will have to fetch a full slice from the internet (for example a 256KB request could result in a 8MB download).
 
 Please be aware that there are a number of potential downsides to increasing the slice size, that should be fully understood before making changes to it.
 
@@ -61,7 +61,7 @@ Ultimately the performance will be a trade off and factors such as number of int
 
 There is no one slice value that is likely to work in all configurations.
 
-The default of 1MB is considered the safest, but increasing to 2, 4 or even 8 might give performance improvements for single-user download scenarios without too many adverse effects.
+The default of 1MB is considered the safest, but increasing to 2, 4 or even 8 might give performance improvements for single-user download scenarios, however they may also make things slower.
 
 ### 2. Invalidation of existing cache data
 
@@ -78,7 +78,7 @@ Our longer term plan will be to default to (most likely) an 8MB slice size after
 
 ### 3. Which CDNs will be impacted
 
-We anticipate that changing the slice size will have very minimal impact on Steam and Uplay as they already use files that are mainly around 1MB or less. Blizzard and Origin are potentially the CDN's that will benefit the most, as they download large files which are sliced by LanCache.
+We anticipate that changing the slice size will have very minimal impact on Steam and Uplay as they already use files that are mainly around 1MB or less. Blizzard and Origin are potentially the CDN's that will benefit the most, as they download large files which are sliced by LanCache. In more recent times as the game catalogues change we have found that larger slice sizes are causing more issues so beware of that if you are testing and use multiple titles to confirm.
 
 ### 4. Disabling slicing
 
