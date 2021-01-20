@@ -71,7 +71,9 @@ Should you wish a cache server to have multiple IP addresses (for example a mono
 
 ## Custom DNS Records
 
-If you would like to add custom records to your DNS server (for example additional services, ad-blocking, etc) you can do so by adding records to the `/etc/bind/cache/custom.db` file within the container. The easiest way to do this is, upon container creation, to bind a local file to a container file. To do that, the command argument would be `-v /<host path here>/custom.db:/etc/bind/cache/custom.db`
+If you would like to add custom records to your DNS server (for example additional services, ad-blocking, etc) you can do so by adding records to the `/etc/bind/cache/custom.db` file within the container. The easiest way to do this, upon container creation, is to bind a local file to a container file. 
+
+To do that, the command argument would be: `-v /<host path here>/custom.db:/etc/bind/cache/custom.db`
 
 Here is an example of what that `custom.db` could look like:
 ```
@@ -79,8 +81,7 @@ notes.<your domain>        A       10.0.0.230
 games.<your domain>        A       10.0.0.230
 files.<your domain>        A       10.0.0.231
 ```
-The custom.db uses the RPZ zone format. For more information on the RPZ format, see the BIND9 documentation:
-https://downloads.isc.org/isc/bind9/9.14.6/doc/arm/Bv9ARM.ch05.html#zone_file
+The `custom.db` uses the RPZ zone format. For more information on the RPZ format, see the [BIND9 documentation](https://downloads.isc.org/isc/bind9/9.14.6/doc/arm/Bv9ARM.ch05.html#zone_file).
 
 ## Running on Startup
 
