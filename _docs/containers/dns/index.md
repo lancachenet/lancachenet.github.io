@@ -47,7 +47,7 @@ STEAMCACHE_IP
 UPLAYCACHE_IP
 ```
 
-You can also disable any of the cache dns resolvers by setting the environment variable of DISABLE_${SERVICE}=true
+If you are using `USE_GENERIC_CACHE` and `LANCACHE_IP` you can choose to disable any of the cache dns resolvers by setting the environment variable of DISABLE_${SERVICE}=true
 
 ```
 DISABLE_BLIZZARD
