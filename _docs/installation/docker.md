@@ -13,7 +13,7 @@ The best and quickest way is to get started with lancache.net is to use the [qui
 
 ## Simple Full Stack startup
 
-To initialise a full caching setup with dns and sni proxy you can use the following commands as a starting point:
+To initialise a full caching setup with dns and https passthrough you can use the following commands as a starting point:
 
 <div class="note">
   <h5>Double Check</h5>
@@ -24,8 +24,7 @@ To initialise a full caching setup with dns and sni proxy you can use the follow
 ```sh
 export HOST_IP=`hostname -I | cut -d' ' -f1`
 docker run --restart unless-stopped --name lancache-dns --detach -p 53:53/udp -e USE_GENERIC_CACHE=true -e LANCACHE_IP=$HOST_IP lancachenet/lancache-dns:latest
-docker run --restart unless-stopped --name lancache --detach -v /cache/data:/data/cache -v /cache/logs:/data/logs -p 80:80  lancachenet/monolithic:latest
-docker run --restart unless-stopped --name sniproxy --detach -p 443:443 lancachenet/sniproxy:latest
+docker run --restart unless-stopped --name lancache --detach -v /cache/data:/data/cache -v /cache/logs:/data/logs -p 80:80 -p 443:443 lancachenet/monolithic:latest
 echo Please configure your router/dhcp server to serve dns as $HOST_IP
 ```
 
@@ -34,6 +33,13 @@ echo Please configure your router/dhcp server to serve dns as $HOST_IP
 Once lancache-dns and monolithic are up and running you need to configure your router to hand out the IP address of the lancache-dns instance instead of your usual default. This is called "DNS poisoning" and is the primary intercept method for our cachable traffic.
 
 The ideal solution when deploying lancache.net is to distribute the IP of your lancache-dns server via dhcp. Many commercial routers will have an option under __LAN settings__ (or similar) to change the _DNS Server IP_. Unfortunately not all consumer brand routers are so versatile so if you cannot find a LAN DNS setting you can use the WAN settings instead. There are many different makes and models of router and each is configured differently. We have put together a guide for some common makes and models which can be found [here](/docs/installation/routers/)
+
+<div class="note error">
+	<h5>It's always DNS</h5>
+    <p>
+    	It's very important the lancache-dns is the ONLY dns server given out to your clients. Any other dns servers should be configured using the UPSTREAM_DNS option in the .env file.
+    </p>
+</div>
 
 ## Testing your cache
 
