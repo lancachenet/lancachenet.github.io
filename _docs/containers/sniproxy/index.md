@@ -9,11 +9,15 @@ permalink: /docs/containers/sniproxy/
 
 When running a LAN Cache and overriding DNS entries, there are some services (including the Origin launcher) which will try and use HTTPS to talk to one of the hostnames that are being overridden. This breaks updates to the Origin client.
 
-The solution is to run SNI Proxy on all IP addresses on the LAN Cache server. This accepts the HTTPS requests, looks at the host being requested and sends the request on to the correct server.
+Monolithic uses nginx's sni_preread module to forward all SNI traffic to the correct server. This container is provided for legacy solutions and runs an instance of the SNI Proxy application as a standalone solution. This accepts the HTTPS requests, looks at the host being requested and sends the request on to the correct server.
 
 ## Why do I need an SNI Proxy
 
 SNI Proxy allows hostnames that serve BOTH http and https content to be overridden and pointed to your cache server. Traffic going to that hostname on port 80 (http) will hit the cache container and be cached, whilst traffic on port 443 (https) is passed straight through to the internet by the SNI Proxy container.
+
+### Should I use monolithic or sniproxy to intercept
+
+Our recommendation is to use the embedded https interception from monolithic (as per our docker-compose) unless you know exactly what you are doing.
 
 ### Can SNI Proxy cache encrypted traffic
 
