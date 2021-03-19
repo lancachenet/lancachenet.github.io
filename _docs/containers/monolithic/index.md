@@ -39,8 +39,8 @@ docker run \
   --name lancache \
   -v /cache/data:/data/cache \
   -v /cache/logs:/data/logs \
-  -p 192.168.1.10:80:80 \
-  -p 192.168.1.10:443:443 \
+  -p 80:80 \
+  -p 443:443 \
   lancachenet/monolithic:latest
 ```
 
