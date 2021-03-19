@@ -20,7 +20,7 @@ The best and quickest way is to get started with lancache.net is to use the quic
 If you have a Linux machine that already has Docker pre-installed, please just run the following commands:
 
 <div class="unit code code-terminal">
-<p class="title">Terminal</p>
+<span class="title">Terminal</span>
 <div class="shell">
 <p class="line">
 <span class="path">~</span>
