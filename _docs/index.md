@@ -51,6 +51,13 @@ If you have a Linux machine that already has Docker pre-installed, please just r
 
 This should bring up a fully functional LanCache and DNS container, and an SNI Proxy to handle passthrough of https traffic.
 
+<div class="note error">
+	<h5>It's always DNS</h5>
+    <p>
+    	It's very important the lancache-dns is the ONLY dns server given out to your clients. Any other dns servers should be configured using the UPSTREAM_DNS option in the .env file.
+    </p>
+</div>
+
 ## More Detail
 
 When you edit the .env file most users are going to need to make the following changes:
