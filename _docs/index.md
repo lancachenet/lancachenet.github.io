@@ -43,7 +43,7 @@ If you have a Linux machine that already has Docker pre-installed, please just r
 <span class="command">docker-compose up -d</span>
 </p>
 <p class="line">
-<span class="output"># => Configure your router to serve lancache-dns</span>
+<span class="output"># => Configure your router to serve ONLY lancache-dns</span>
 </p>
 </div>
 </div>
