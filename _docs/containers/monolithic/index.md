@@ -40,6 +40,7 @@ docker run \
   -v /cache/data:/data/cache \
   -v /cache/logs:/data/logs \
   -p 192.168.1.10:80:80 \
+  -p 192.168.1.10:443:443 \
   lancachenet/monolithic:latest
 ```
 
@@ -47,9 +48,9 @@ Unlike lancachenet/generic this service will cache all cdn services defined in t
 
 ## SSL
 
-Some publishers, including Origin, use the same hostnames we're replacing for HTTPS content as well as HTTP content. We can't cache HTTPS traffic, so if you're intercepting DNS, you will need to run an SNI Proxy container on port 443 to forward on any HTTPS traffic.
+Some publishers, including Origin, use the same hostnames we're replacing for HTTPS content as well as HTTP content. We can't cache HTTPS traffic however the container is setup to proxy any traffic received on 443 to the destination uncached.
 
-Please read the [sniproxy](/docs/containers/sniproxy/) container information for more information on how to do this.
+We also provide a dedicated [sniproxy](/docs/containers/sniproxy/) container for legacy and custom installs but don't recommend using this unless you understand the consequences.
 
 ## Changing Upstream DNS
 
