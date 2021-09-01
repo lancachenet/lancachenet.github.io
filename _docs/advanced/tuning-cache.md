@@ -64,7 +64,9 @@ Ultimately the performance will be a trade off and factors such as number of int
 
 There is no one slice value that is likely to work in all configurations.
 
-The default of 1MB is considered the safest, but increasing to 2, 4 or even 8 might give performance improvements for single-user download scenarios, however they may also make things slower. A 256kb range request causes a full slice to be fetched on a miss so with 8mb you would be fetching 7.75mb you dont need which is considerably slower.
+The default of 1MB is considered the safest, but increasing to 2, 4 or even 8 might give performance improvements for single-user download scenarios, however they may also make things slower. As mentioned earlier, if a client requests 256KB, the cache will still request a full slice from upstream for uncached content - with an 8MB slice, the client will be waiting for the full 8MB slice to download before requesting more data.
+
+Unless you have a particularly high speed connection (e.g. 200Mbps+) and a small number of maximum simultaneous clients, it is **not recommended** that you change this from the default value.
 
 ### 2. Invalidation of existing cache data
 
