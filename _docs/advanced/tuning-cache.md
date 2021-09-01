@@ -47,11 +47,14 @@ Choose a game which has not been seen by the cache before (or clear your `/data/
 
 Some situations can see a slower initial download rate through the cache than without (though obviously subsequent downloads are MUCH faster). Testing shows that the client does not cope as well as most others with the chunking / slicing configuration for nginx that lancache uses.
 
-Testing has shown that a modest increase in slice size can help downloads. Although it also can considerably reduce the speed in some cases. In the worse cases where a client makes a small range request to a large file the cache will have to fetch a full slice from the internet (for example a 256KB request could result in a 8MB download).
+Testing has shown that it is possible that a modest increase in slice size can help downloads. Although it also can considerably reduce the speed in some cases. In the worse cases where a client makes a small range request to a large file the cache will have to fetch a full slice from the internet (for example a 256KB request could result in a 8MB download).
 
-Please be aware that there are a number of potential downsides to increasing the slice size, that should be fully understood before making changes to it.
-
-Please note that this tuning area is still under active development and the detail is likely to change as work progresses.
+<div class="note warning">
+  <h5>HERE BE DRAGONS!!!</h5>
+   <p>
+It is highly unlikely you want to change the slice size unless you REALLY know what you are doing. Please be aware that there are a number of potential downsides to increasing the slice size, that should be fully understood before making changes to it. Please note that this tuning area is still under active development and the detail is likely to change as work progresses.
+   </p>
+</div>
 
 ### 1. Multi-user risk
 
@@ -61,7 +64,7 @@ Ultimately the performance will be a trade off and factors such as number of int
 
 There is no one slice value that is likely to work in all configurations.
 
-The default of 1MB is considered the safest, but increasing to 2, 4 or even 8 might give performance improvements for single-user download scenarios, however they may also make things slower.
+The default of 1MB is considered the safest, but increasing to 2, 4 or even 8 might give performance improvements for single-user download scenarios, however they may also make things slower. A 256kb range request causes a full slice to be fetched on a miss so with 8mb you would be fetching 7.75mb you dont need which is considerably slower.
 
 ### 2. Invalidation of existing cache data
 
@@ -73,8 +76,6 @@ In addition to the above - changing the slice size will make most of the existin
 For example, If you had an 8.5MB file you originally downloaded with a 1m slice size, and you change the slice size to 4m, the first 8 slices will be invalidated, but the last 0.5MB slice will still be valid. If you changed the slice size to 6MB, all pieces would be invalidated.
 
 We are adding a hash check on Monolithic startup to identify whether various cache parameters that may invalidate the cache have changed since last run and throw an error. This will then force you to run with an override environment variable to proceed. See [this page](/docs/advanced/config-hash/) for more information on the override.
-
-Our longer term plan will be to default to (most likely) an 8MB slice size after more extensive testing.
 
 ### 3. Which CDNs will be impacted
 
