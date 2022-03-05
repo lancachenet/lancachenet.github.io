@@ -22,14 +22,14 @@ monolithic:
     description: >-
       The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
     default: 8.8.8.8 8.8.4.4
-  - name: CACHE_MEM_SIZE
-    description: >-
-      The amount of memory the container should use for caching data
-    default: 500m
   - name: CACHE_DISK_SIZE
     description: >-
       The amount of disk space the container should use for caching data
     default: 1000000m
+  - name: CACHE_INDEX_SIZE
+    description: >-
+      Ammount of index memory for the nginx cache manager. We recommend 250m of index memory per 1TB of CACHE_DISK_SIZE 
+    default: 500m
   - name: CACHE_MAX_AGE
     description: >-
       The maximum amount of time a file should be held in cache. There is usually no reason to reduce this - the cache will automatically remove the oldest content if it needs the space.
@@ -76,14 +76,14 @@ generic:
     description: >-
       The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
     default: 8.8.8.8 8.8.4.4
-  - name: CACHE_MEM_SIZE
-    description: >-
-      The amount of memory the container should use for caching data
-    default: 500m
   - name: CACHE_DISK_SIZE
     description: >-
       The amount of disk space the container should use for caching data
     default: 1000000m
+  - name: CACHE_INDEX_SIZE
+    description: >-
+      Ammount of index memory for the nginx cache manager. We recommend 250m of index memory per 1TB of CACHE_DISK_SIZE 
+    default: 500m
   - name: CACHE_MAX_AGE
     description: >-
       The maximum amount of time a file should be held in cache. There is usually no reason to reduce this - the cache will automatically remove the oldest content if it needs the space.
