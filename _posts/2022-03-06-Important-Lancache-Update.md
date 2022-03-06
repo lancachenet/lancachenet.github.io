@@ -31,6 +31,6 @@ CACHE\_INDEX\_SIZE is the amount of memory allocated to nginx to store the index
 
 This recommendation is based on the assumption that the cache is full of 1mb slices. What we realised as part of our investigations into the cache not filling sufficiently is that the distribution of file sizes within the cache is actually a reverse bell curve, with much larger than expected numbers of \~<1kb files in addition to the expected large numbers of 1mb slices. 
 
-![Reverse Bell curve](/img/Reverse-Bell-Curve.png)
+<center>![Reverse Bell curve](/img/Reverse-Bell-Curve.png)</center>
 
 Based on analysis of real world usage across all CDN's, we have now adjusted the recommendation to 250m per 1TB of cache data which allows 2 million files (at an average file size of 500kb). This should cover the variance with some headroom to spare.
