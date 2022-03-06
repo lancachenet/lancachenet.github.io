@@ -17,7 +17,7 @@ Should you wish to run a custom branch you can also specify `CACHE_DOMAINS_BRANC
 
 ### Examples
 These examples would use the cache domains from https://github.com/your-username/cache-domains.git and select the branch yourbranch
-```.env
+```sh
 CACHE_DOMAINS_REPO="https://github.com/your-username/cache-domains.git"
 CACHE_DOMAINS_BRANCH="yourbranch"
 ```
