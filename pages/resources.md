@@ -13,6 +13,7 @@ Organisers of LAN events and gaming cafe's have been working on the problem of c
 
 ## Cache Priming
 - [ZeroPingHeroes](https://github.com/zeropingheroes/lancache-autofill)
+- [Battlenet-lancache-prefill](https://github.com/tpill90/Battlenet-lancache-prefill)
 
 ## Organisations
 - [UKLans](https://uklans.net)
