@@ -39,7 +39,7 @@ The next installation step is physical. Our server needs to be connected to the 
 
 Following a physical install the next step is for us to change how clients look up addresses. In our imaginary network we provide addresses to clients by DHCP. We will alter our routers settings to now hand out the ip address of our lancache-dns service as their DNS server rather than using the router itself. The two most basic configurations we could now adopt are:
 * 8.8.8.8 : Use a well known public DNS service as the defined upstream in the container config.
-* Router : If there are other things in the network that require local named addresses (other services or internally hosted items) then it might make sense to us the router as the upstream DNS. This will still return internet addresses for us but will also know about the LAN addresses we have.
+* Router : If there are other things in the network that require local named addresses (other services or internally hosted items) then it might make sense to use the router as the upstream DNS. This will still return internet addresses for us but will also know about the LAN addresses we have.
 
 There are many more complex schemes for DNS, advanced topics may discuss some however the goal is to ensure that when a client request a content address they are directed to the cache container and not the internet.
 
