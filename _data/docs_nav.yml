@@ -19,6 +19,7 @@
     - link: /docs/upgrading/
     - link: /docs/hardware/
     - link: /docs/common-issues/
+    - link: /docs/useful-commands/
 - title: Monolithic
   docs:
     - link: /docs/containers/monolithic/
