@@ -3,13 +3,13 @@ title: Common Issues
 permalink: "/docs/common-issues/"
 ---
 
-There are several issues that frequently crop up when deploying lancache. Here is the information on how to handle them if they happen to you.
+There are several issues that frequently crop up when deploying Lancache. Here is the information on how to handle them if they happen to you.
 
 {% include toc.html %}
 
 ## It's not DNS ...
 
-The most common cache issue we see is incorrectly configured DNS. It is essential that gaming machines only have one dns server assigned, that being lancache. If you have two different ones then the client will use them both and bypass the cache for about half of the requests. While the mechanism operating systems use to choose which dns server to use is complicated it is a suitable summary to say its "at random".
+The most common cache issue we see is incorrectly configured DNS. It is essential that gaming machines only have one dns server assigned, that being Lancache. If you have two different ones then the client will use them both and bypass the cache for about half of the requests. While the mechanism operating systems use to choose which dns server to use is complicated it is a suitable summary to say its "at random".
 
 
 ## Disabling systemd-resolved DNSStubListener
@@ -22,14 +22,21 @@ If your cache host is running a recent Linux distribution, it is likely running 
 1. Run `sudo service systemd-resolved restart`
 1. Check that you can still resolve DNS on the cache server by running `nslookup` for a domain of your choice (e.g. `lancache.net`)
 
+## Battle.net Slow Initial Download
+
+The Battle.net client is known to suffer from incredibly slow downloads, 1mbit/s or less, when downloading for the first time with an empty cache.
+These slow downloads are due to how Battle.net poorly interacts with Lancache, and are unfortunately unable to be resolved in Lancache itself.
+
+As a workaround, [battlenet-lancache-prefill](https://github.com/tpill90/battlenet-lancache-prefill) can be used to prime Battle.net games at full speed, , enabling subsequent downloads to be retrieved from the Lancache.
+
 ## Unraid Port Bindings
 
-Unraid provides network storage, virtual machines and docker functionality and on the face of it seems a great platform for running up your lancache. However people often run into problems with ports. To use lancache you need to have unchallenged access to:
+Unraid provides network storage, virtual machines and docker functionality and on the face of it seems a great platform for running up your Lancache. However people often run into problems with ports. To use Lancache you need to have unchallenged access to:
 * Port 80: where HTTP content is requested.
 * Port 443: so that HTTPS is handled.
 * Port 53: so that DNS requests can be directed.
 
-These are usually in heavy rotation by the unraid UI. While some users have managed to add another IP and move some services arround there is an easier way. Simply run up an unbuntu VM on unraid. You can assign an uncontested IP to your VM with ease and now you are on the "happy path" for install. Use the Separation of Concerns principle and put your caching all inside one easy to operate wrapped up VM of its own.
+These are usually in heavy rotation by the Unraid UI. While some users have managed to add another IP and move some services around there is an easier way. Simply run up an Ubuntu VM on Unraid. You can assign an uncontested IP to your VM with ease and now you are on the "happy path" for install. Use the Separation of Concerns principle and put your caching all inside one easy to operate wrapped up VM of its own.
 
 ## Slow Download Speeds
 
@@ -40,7 +47,7 @@ Its quite common to see different or odd behaviour at the download client with a
 1. Lancache finishes downloading and informs the client.
 1. Client downloads 20MB over a 10Gbit nic to an M2 harddrive at speeds the 1990s wouldn't even dare dream of and gets the file almost instantly. The average speed in the client blips upto 100Kbps and returns to zero.
 
-It worth remembering that your cache is aiming to provide for many people and that using one client to assess speed can be misleading. That said there are some games that have odd behaviour that can be improved. Some CDNs use back off mechanics that don't play well with the slicing module in nginx. Others have "interesting" behavior with range requests. For the most part we have found the standard behaviour to be satifactory but if you want to try and tune it, try out the [advanced section](/docs/advanced/tuning-cache).
+It worth remembering that your cache is aiming to provide for many people and that using one client to assess speed can be misleading. That said there are some games that have odd behaviour that can be improved. Some CDNs use back off mechanics that don't play well with the slicing module in nginx. Others have "interesting" behavior with range requests. For the most part we have found the standard behaviour to be satisfactory but if you want to try and tune it, try out the [advanced section](/docs/advanced/tuning-cache).
 
 ## IPv6
 
@@ -60,4 +67,4 @@ The exact reason for this logic is known only to the game companies in question,
 
 ## Can't resolve DNS with a Centos 8 server
 
-There appears to be a fault between the inbuilt firewall and docker on some of the linux variants. Centos 8 has this issue and we have also seen it on fedora. As primary advice we suggest that ubuntu is a easy to use linux choice. If you have choosen Centos 8 or similiar on purpose then there are work arounds for the problem. [As described here](https://serverfault.com/questions/987686/no-network-connectivity-to-from-docker-ce-container-on-centos-8) you can use masquerading to combat the problem between nftables, iptables and docker.
+There appears to be a fault between the inbuilt firewall and docker on some of the linux variants. Centos 8 has this issue and we have also seen it on fedora. As primary advice we suggest that ubuntu is a easy to use linux choice. If you have chosen Centos 8 or similar on purpose then there are work arounds for the problem. [As described here](https://serverfault.com/questions/987686/no-network-connectivity-to-from-docker-ce-container-on-centos-8) you can use masquerading to combat the problem between nftables, iptables and docker.
