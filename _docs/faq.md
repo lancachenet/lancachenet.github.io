@@ -81,7 +81,7 @@ Other options also involve transparently intercepting HTTP traffic at a network 
 
 ## Can I load some content into the cache ahead of my event?
 
-You could look at [zeropingheroes/lancache-autofill](https://github.com/zeropingheroes/lancache-autofill) as an aide to pre-loading popular games into the cache ahead of time to help kick start the cache
+You could look at [steam-lancache-prefill](https://github.com/tpill90/steam-lancache-prefill) and  [battlenet-lancache-prefill](https://github.com/tpill90/battlenet-lancache-prefill) as  aides to pre-load popular games into the cache ahead of time to help kick start the cache.
 
 ## Can I install lancache on my NAS?
 

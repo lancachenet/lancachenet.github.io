@@ -12,8 +12,8 @@ Organisers of LAN events and gaming cafe's have been working on the problem of c
 - [Open Source Lan](http://opensourcelan.com/)
 
 ## Cache Priming
-- [ZeroPingHeroes](https://github.com/zeropingheroes/lancache-autofill)
-- [Battlenet-lancache-prefill](https://github.com/tpill90/Battlenet-lancache-prefill)
+- [steam-lancache-prefill](https://github.com/tpill90/steam-lancache-prefill)
+- [battlenet-lancache-prefill](https://github.com/tpill90/battlenet-lancache-prefill)
 
 ## Organisations
 - [UKLans](https://uklans.net)
