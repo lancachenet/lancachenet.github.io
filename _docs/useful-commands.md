@@ -37,5 +37,5 @@ Adding `sudo` in front of the command also works.
 |`docker-compose down && docker-compose up -d` | This command stops all running docker containers and restarts them afterwards |
 | `lsof -i tcp:<port>`| This command shows the services running on a specific port  |
 | `ip -a` | This command shows all the ip information for your caching server|
-| `find /your/cache/folder -type f -exec awk 'FNR>2 {nextfile} ``/origin\/eamaster\/s\/shift\``/mass_effect\/mass_effect_andromeda\/patchww_ww\``/mass_effect_andromedapcpatchww_wwconcept_670739583_``pc_retail_patch_fe0ac79761d8c4feba5831a96cfbc7fc6.zip/ ``{ print FILENAME ; nextfile }' '{}' +` | This command allows you to remove a corrupt file from the LanCache. **This process takes very long** |
+| `find /your/cache/folder -type f -exec awk 'FNR>2 {nextfile} ``/origin\/eamaster\/s\/shift\``/mass_effect\/mass_effect_andromeda\/patchww_ww\``/mass_effect_andromedapcpatchww_wwconcept_670739583_``pc_retail_patch_fe0ac79761d8c4feba5831a96cfbc7fc6.zip/ ``{ print FILENAME ; nextfile }' '{}' +` | This command allows you to remove a corrupt file from the LanCache. **This process takes a very long time on large caches (multiple hours), be patient** |
 
