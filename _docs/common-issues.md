@@ -68,3 +68,7 @@ The exact reason for this logic is known only to the game companies in question,
 ## Can't resolve DNS with a Centos 8 server
 
 There appears to be a fault between the inbuilt firewall and docker on some of the linux variants. Centos 8 has this issue and we have also seen it on fedora. As primary advice we suggest that ubuntu is a easy to use linux choice. If you have chosen Centos 8 or similar on purpose then there are work arounds for the problem. [As described here](https://serverfault.com/questions/987686/no-network-connectivity-to-from-docker-ce-container-on-centos-8) you can use masquerading to combat the problem between nftables, iptables and docker.
+
+## Docker containers do not automatically start after reboot
+
+You can easily examine and update a running container restart behavior by inspecting each container and updating the policy. For example, `sudo docker inspect -f '{{.HostConfig.RestartPolicy}}' lancache_monolithic_1` and `sudo docker inspect -f '{{.HostConfig.RestartPolicy}}' lancache_dns_1` will display the restart policy of `{ 0}` if they will not autoamtically restart. To ensure the containers are restarted on reboot, you can use the `sudo docker update --restart unless-stopped lancache_monolithic_1` and `sudo docker update --restart unless-stopped lancache_dns_1` commands. Afterwards an additional inspection should yield an output of `{unless-stopped 0}`. For more information on updating docker container policy, please see the [docker documentation](https://docs.docker.com/engine/reference/commandline/container_update/).
