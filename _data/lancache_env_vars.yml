@@ -24,8 +24,8 @@ monolithic:
     default: 8.8.8.8 8.8.4.4
   - name: CACHE_DISK_SIZE
     description: >-
-      The amount of disk space the container should use for caching data
-    default: 1000000m
+      The amount of disk space the container should use for caching data.  Specified in gigabytes.
+    default: 1000g
   - name: CACHE_INDEX_SIZE
     description: >-
       Amount of index memory for the nginx cache manager. We recommend 250m of index memory per 1TB of CACHE_DISK_SIZE 
