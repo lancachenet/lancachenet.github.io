@@ -14,6 +14,7 @@ Organisers of LAN events and gaming cafe's have been working on the problem of c
 ## Cache Priming
 - [steam-lancache-prefill](https://github.com/tpill90/steam-lancache-prefill)
 - [battlenet-lancache-prefill](https://github.com/tpill90/battlenet-lancache-prefill)
+- [epic-lancache-prefill](https://github.com/tpill90/epic-lancache-prefill)
 
 ## Organisations
 - [UKLans](https://uklans.net)
