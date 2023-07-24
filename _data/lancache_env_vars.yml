@@ -46,7 +46,7 @@ monolithic-advanced:
     default: false
   - name: WEBUSER
     description: >-
-      The system user NGINX runs as.
+      The system user NGINX runs under.
     default: www-data
   - name: BEAT_TIME
     description: >-
