@@ -6,149 +6,111 @@
 #   We might be able to repurpose this to handle env variables?
 
 monolithic:
-  - name: CACHE_DOMAINS_REPO
+  - name: CACHE_ROOT
     description: >-
-      The github repo url for the cache_domains files to use to populate the cdn maps, if you do not want to use the recommended source for testing purposes.
-    default: https://github.com/uklans/cache-domains.git
-  - name: CACHE_DOMAINS_BRANCH
-    description: >-
-      The branch of the CACHE_DOMAINS_REPO to use
-    default: master
-  - name: NOFETCH
-    description: >-
-      Turn off all git pull operations and use stored data
-    default: false
-  - name: UPSTREAM_DNS
-    description: >-
-      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
-    default: 8.8.8.8 8.8.4.4
+      The file path where cached data will be stored. By default, a folder named "lancache" in the same directory as the docker-compose file is used.
+    default: ./lancache
   - name: CACHE_DISK_SIZE
     description: >-
-      The amount of disk space the container should use for caching data.  Specified in gigabytes.
-    default: 1000g
+      The maximum amount of disk space Monolithic should use for cache data.
+    default: 2000g
   - name: CACHE_INDEX_SIZE
     description: >-
-      Amount of index memory for the nginx cache manager. We recommend 250m of index memory per 1TB of CACHE_DISK_SIZE 
+      The amount of system memory to allocate to Monolithic's cache index. We recommend 250m (250 Megabytes) of memory per 1000g (1000 Gigabytes) of CACHE_DISK_SIZE.
     default: 500m
   - name: CACHE_MAX_AGE
     description: >-
-      The maximum amount of time a file should be held in cache. There is usually no reason to reduce this - the cache will automatically remove the oldest content if it needs the space.
+      How long data should remain in the cache before being automatically removed. There is typically no reason to change this as the cache will automatically overwrite the oldest files once full.
     default: 3560d
+  - name: TZ
+    description: >-
+      The timezone to be used by the Monolithic container in <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List" target="_blank">TZ identifier</a> format. This is used primarily to provide correct timestamps in log files.
+    default: Europe/London
 
 monolithic-advanced:
-  - name: NGINX_WORKER_PROCESSES
-    description: >-
-    default: auto
-  - name: GENERICCACHE_VERSION
-    description: >-
-      Internal reference version. DO NOT CHANGE THIS.
-    default: 2
-  - name: WEBUSER
-    description: >-
-      Account NGINX runs under
-    default: www-data
-  - name: BEAT_TIME
-    description: >-
-      How often the internal heart beat process runs
-    default: 1h
-  - name: LOGFILE_RETENTION
-    description: >-
-    default: 3560
-  - name: NGINX_WORKER_PROCESSES
-    description: >-
-    default: 16
-  - name: CACHE_SLICE_SIZE
-    description: >-
-      See <a href="/docs/advanced/tuning-cache/#b---tweaking-slice-size">this guide</a> before changing this. It WILL invalidate any currently cached data.
-    default: 1m
-  - name: CACHE_MODE
-    description: >-
-    default: generic
-  - name: FORCE_PERMS_CHECK
-    description: >-
-      Force a full permissions check on startup.  When the container starts up normally, it checks a few key locations to ensure that they are owned by the correct user.  This option will force the container to do a full check of all cache directories and files.  THIS WILL BE VERY SLOW, AND MAY POSSIBLY TAKE HOURS.
-    default: false
-
-
-# note some of these are duplicates of monolithic
-generic:
-  - name: UPSTREAM_DNS
-    description: >-
-      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
-    default: 8.8.8.8 8.8.4.4
-  - name: CACHE_DISK_SIZE
-    description: >-
-      The amount of disk space the container should use for caching data
-    default: 1000000m
-  - name: CACHE_INDEX_SIZE
-    description: >-
-      Amount of index memory for the nginx cache manager. We recommend 250m of index memory per 1TB of CACHE_DISK_SIZE 
-    default: 500m
-  - name: CACHE_MAX_AGE
-    description: >-
-      The maximum amount of time a file should be held in cache. There is usually no reason to reduce this - the cache will automatically remove the oldest content if it needs the space.
-    default: 3560d
-
-generic-advanced:
-  - name: GENERICCACHE_VERSION
-    description: >-
-      Internal reference version. DO NOT CHANGE THIS.
-    default: 2
-  - name: WEBUSER
-    description: >-
-      Account NGINX runs under
-    default: www-data
-  - name: BEAT_TIME
-    description: >-
-      How often the internal heart beat process runs
-    default: 1h
-  - name: LOGFILE_RETENTION
-    description: >-
-    default: 3560
-  - name: NGINX_WORKER_PROCESSES
-    description: >-
-    default: 16
-  - name: CACHE_SLICE_SIZE
-    description: >-
-      See https://www.lancache.net/docs/advanced/tuning-cache/#b---tweaking-slice-size before changing this. It WILL invalidate any currently cached data.
-    default: 1m
-  - name: CACHE_MODE
-    description: >-
-    default: generic
-  - name: FORCE_PERMS_CHECK
-    description: >-
-      Force a full permissions check on startup.  When the container starts up normally, it checks a few key locations to ensure that they are owned by the correct user.  This option will force the container to do a full check of all cache directories and files.  THIS WILL BE VERY SLOW, AND MAY POSSIBLY TAKE HOURS.
-    default: false
-
-lancache-dns:
   - name: CACHE_DOMAINS_REPO
     description: >-
-      The github repo url for the cache_domains files to use to populate the cdn maps, if you do not want to use the recommended source for testing purposes.
+      The Git repo hosting the list of domains to be cached (cache_domains). The default repo (uklans/cache-domains) is a community-maintained list of hostnames that serve game-related content compatible with LanCache and shouldn't need to be changed unless to add custom services.
     default: https://github.com/uklans/cache-domains.git
   - name: CACHE_DOMAINS_BRANCH
     description: >-
-      The branch of the CACHE_DOMAINS_REPO to use
+      The Git branch of CACHE_DOMAINS_REPO to use.
     default: master
+  - name: NGINX_WORKER_PROCESSES
+    description: >-
+      The number of NGINX worker processes to spawn. The default of auto attempts to run one worker process per CPU core.
+    default: auto
+  - name: NOFETCH
+    description: >-
+      When true, NOFETCH disables downloading or updating the list of domains to cache (cache_domains) from CACHE_DOMAINS_REPO and instead uses the currently stored entries.
+    default: false
+  - name: WEBUSER
+    description: >-
+      The system user NGINX runs as.
+    default: www-data
+  - name: BEAT_TIME
+    description: >-
+      How often the internal heartbeat process runs. This task prints a heartbeat to a log file for diagnostic purposes and can be used by external services to check the health of Monolithic.
+    default: 1h
+  - name: CACHE_SLICE_SIZE
+    description: >-
+      The size of NGINX cache slices. NGINX breaks large requests up into slices of the specified size. The default of 1m (1 Megabyte) is intended as a happy medium for all of the compatible services. See <a href="/docs/advanced/tuning-cache/#tweaking-slice-size">this guide</a> before you consider changing this value, as it has serious performance implications and will invalidate any existing cache data.
+    default: 1m
+  - name: FORCE_PERMS_CHECK
+    description: >-
+      Whether or not to force a full file permissions check on startup. By default, Monolithic checks a few key locations to ensure that they are owned by the correct user. This option forces Monolithic to do a full check of all cache directories and files. THIS WILL BE VERY SLOW, AND COULD POSSIBLY TAKE HOURS.
+    default: false
+  - name: GENERICCACHE_VERSION
+    description: >-
+      An internal version reference. DO NOT CHANGE THIS.
+    default: 2
+
+lancache-dns:
+  - name: USE_GENERIC_CACHE
+    description: >-
+      Whether or not lancache-dns should forward DNS lookups for ALL cached domains to a generic Monolithic instance running at LANCACHE_IP. Setting this to false means LANCACHE_IP will be ignored, and only services configured with <SERVICE>CACHE_IP (ex. STEAMCACHE_IP or RIOTCACHE_IP) will be forwarded.
+    default: true
+  - name: LANCACHE_IP
+    description: >-
+      The IP address(es) of your generic Monolithic instance. Multiple IPs can be used, separated by semi-colons or spaces. If you wish to run individual Monolithic instances for some or all services, they can be individually configured by adding <SERVICE>CACHE_IP (ex. STEAMCACHE_IP=10.0.0.10) to your .env file. See your CACHE_DOMAINS_REPO for a list of services.
+    default: 10.0.39.1
+  - name: DNS_BIND_IP
+    description: >-
+      The IP address lancache-dns should bind to. Set this IP as the sole DNS IP on your DHCP server to have clients on your network use LanCache.
+    default: 10.0.39.1
   - name: UPSTREAM_DNS
     description: >-
-      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
-    default: 8.8.8.8
+      The upstream DNS server(s) to be used by lancache-dns. Multiple IPs can be used, separated by semi-colons or spaces as shown with the default Google DNS servers. Do NOT point this at lancache-dns.
+    default: 8.8.8.8 8.8.4.4
+  - name: TZ
+    description: >-
+      The timezone to be used by the lancache-dns container in <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List" target="_blank">TZ identifier</a> format. This is used primarily to provide correct timestamps in log files.
+    default: Europe/London
 
 lancache-dns-advanced:
-  - name: STEAMCACHE_DNS_VERSION
+  - name: CACHE_DOMAINS_REPO
     description: >-
-      Internal reference version. DO NOT CHANGE THIS.
-    default: 1
+      The Git repo hosting the list of domains to be cached (cache_domains). The default repo (uklans/cache-domains) is a community-maintained list of hostnames that serve game-related content compatible with LanCache and shouldn't need to be changed unless to add custom services.
+    default: https://github.com/uklans/cache-domains.git
+  - name: CACHE_DOMAINS_BRANCH
+    description: >-
+      The Git branch of CACHE_DOMAINS_REPO to use.
+    default: master
   - name: ENABLE_DNSSEC_VALIDATION
     description: >-
+      Whether or not DNSSEC information on the UPSTREAM_DNS provider should be validated. This is disabled by default as it can cause problems in some restrictive firewall setups.
     default: false
   - name: LANCACHE_DNSDOMAIN
     description: >-
-      Internally used top level domain within the DNS RPZ structure for CNAMES. Should be largely invisible to end users.
+      The internally used top-level domain within the DNS RPZ structure for CNAMES. This should be largely invisible to end users.
     default: cache.lancache.net
+  - name: STEAMCACHE_DNS_VERSION
+    description: >-
+      An internal version reference. DO NOT CHANGE THIS.
+    default: 1
 
 sniproxy:
   - name: UPSTREAM_DNS
     description: >-
-      The upstream DNS server(s) the cache should use. The defaults are Google DNS. Multiple upstream dns servers are allowed, separated by semi colons (or spaces). Do NOT point this at lancache-dns.
+      The upstream DNS server(s) to be used by sniproxy. Multiple IPs can be used, separated by semi-colons or spaces as shown with the default Google DNS servers.
     default: 8.8.8.8 8.8.4.4
