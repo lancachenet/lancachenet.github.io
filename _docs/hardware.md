@@ -58,5 +58,3 @@ Regular commodity hardware (a single 2TB WD Black on an HP Microserver) can achi
 * 8TB of nvme
 * quad 40Gbit NIC
 * peaking at 53.9Gbps
-
-see [here](https://dreamhack.com/anaheim/top-news/anaheim-you-were-awesome/) for details
