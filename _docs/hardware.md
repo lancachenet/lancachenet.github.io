@@ -44,7 +44,7 @@ performance that you can expect from varying hardware setups.
 
 ## Home Hardware
 
-"Me and my < Wife/Husband/Bother/Sister/Extremely well trained cat> both play < insert game >""
+"Me and my < Wife/Husband/Brother/Sister/Extremely well trained cat> both play < insert game >""
 
 Regular commodity hardware (a single 2TB WD Black on an HP Microserver) can achieve peak throughputs of ~240Mbps using this setup (depending on the specific content being served).  This would also be suitable for very small LANs (<10 people).  For any sort of hosting for LAN sizes above this, it is thoroughly recommended that your storage backend is entirely SSD or NVMe.
 
