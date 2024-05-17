@@ -9,7 +9,7 @@ There are several issues that frequently crop up when deploying Lancache. Here i
 
 ## It's not DNS ...
 
-The most common cache issue we see is incorrectly configured DNS. It is essential that gaming machines only have one dns server assigned, that being Lancache. If you have two different ones then the client will use them both and bypass the cache for about half of the requests. While the mechanism operating systems use to choose which dns server to use is complicated it is a suitable summary to say its "at random".
+The most common cache issue we see is incorrectly configured DNS. It is essential that gaming machines only have one DNS server assigned, that being Lancache. If you have two different ones then the client will use them both and bypass the cache for about half of the requests. While the mechanism operating systems use to choose which DNS server to use is complicated, it is a suitable summary to say it's "at random".
 
 
 ## Disabling systemd-resolved DNSStubListener
