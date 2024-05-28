@@ -28,12 +28,16 @@ monolithic:
     default: 1000g
   - name: CACHE_INDEX_SIZE
     description: >-
-      Amount of index memory for the nginx cache manager. We recommend 250m of index memory per 1TB of CACHE_DISK_SIZE 
+      Amount of index memory for the nginx cache manager. We recommend 250m of index memory per 1TB of CACHE_DISK_SIZE
     default: 500m
   - name: CACHE_MAX_AGE
     description: >-
       The maximum amount of time a file should be held in cache. There is usually no reason to reduce this - the cache will automatically remove the oldest content if it needs the space.
     default: 3560d
+  - name: MIN_FREE_DISK
+    description: >-
+      Sets the minimum free disk space that must be kept at all times. When the available free space drops below the set amount for any reason, the cache server will begin pruning content to free up space.  Specified in gigabytes.
+    default: 100g
 
 monolithic-advanced:
   - name: NGINX_WORKER_PROCESSES
@@ -82,7 +86,7 @@ generic:
     default: 1000000m
   - name: CACHE_INDEX_SIZE
     description: >-
-      Amount of index memory for the nginx cache manager. We recommend 250m of index memory per 1TB of CACHE_DISK_SIZE 
+      Amount of index memory for the nginx cache manager. We recommend 250m of index memory per 1TB of CACHE_DISK_SIZE
     default: 500m
   - name: CACHE_MAX_AGE
     description: >-
