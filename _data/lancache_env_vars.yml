@@ -37,7 +37,7 @@ monolithic:
   - name: MIN_FREE_DISK
     description: >-
       Sets the minimum free disk space that must be kept at all times. When the available free space drops below the set amount for any reason, the cache server will begin pruning content to free up space.  Specified in gigabytes.
-    default: 100g
+    default: 10g
 
 monolithic-advanced:
   - name: NGINX_WORKER_PROCESSES
