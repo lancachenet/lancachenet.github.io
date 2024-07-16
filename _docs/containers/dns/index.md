@@ -26,7 +26,7 @@ The special DNS service handles DNS queries normally (recursively), except when 
 
 ## Usage
 
-If you are using a single Monoliothic instance, you should make sure you set USE_GENERIC_CACHE=true and set LANCACHE_IP to the IP address of the caching server.
+If you are using a single Monolithic instance, you should make sure you set USE_GENERIC_CACHE=true and set LANCACHE_IP to the IP address of the caching server.
 
 Run the lancache-dns container using the following to allow UDP port 53 (DNS) through the host machine:
 
