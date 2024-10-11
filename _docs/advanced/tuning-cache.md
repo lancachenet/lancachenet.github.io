@@ -88,3 +88,13 @@ We anticipate that changing the slice size will have very minimal impact on Stea
 Per the [nginx documentation](http://nginx.org/en/docs/http/ngx_http_slice_module.html), setting the slice size to 0 disables slicing.
 
 We do NOT recommend turning off slicing (or setting the value too high) - it will have serious performance impacts on the operation of the cache given the significant size of files found in many modern games.
+
+## Disable docker userland proxy
+
+When Lancache is configured with high performance storage it is possible to become CPU bottlenecked. When this happens it might be beneficial to disable the Docker userland proxy. This is done by creating the file `/etc/docker/daemon.json` and adding:
+```
+{
+    "userland-proxy": false
+}
+```
+Then restart Docker.
