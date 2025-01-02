@@ -45,5 +45,5 @@ There are many more complex schemes for DNS, advanced topics may discuss some ho
 
 #### Notes:
 
-- More complex networks may have the servers and clients in different subnets. In these cases take care to consider the route traffic takes. You might have a 10Gbit fibre connection from your server but if the route between the subnets requires to to go up a 100Mbit connection to a standard home router and back again your clients will not be get their game very quickly. Either have your cache in the same subnet or for more advanced users home your gateway on your core switch and ensure routing can go directly.   
+- More complex networks may have the servers and clients in different subnets. In these cases take care to consider the route traffic takes. You might have a 10Gbit fibre connection from your server but if the route between the subnets requires traffic to go up a 100Mbit connection to a standard home router and back again your clients will not be get their game very quickly. Either have your cache in the same subnet or for more advanced users home your gateway on your core switch and ensure routing can go directly.   
 - You can get a basic check of your DNS setup using [http://diagnostics.lancache.net](http://diagnostics.lancache.net/). NSLookup <address> is a good indication that a redirection is working but is not always conclusive.
