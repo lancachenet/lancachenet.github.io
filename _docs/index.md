@@ -12,8 +12,7 @@ redirect_from:
 The best and quickest way is to get started with lancache.net is to use the quickstart. Before you begin make sure you have: 
 
 * A modern Linux distribution supporting Docker, eg [Ubuntu](https://www.ubuntu.com) or [CentOS](https://www.centos.org/)
-* [Docker](https://www.docker.com/)
-* [docker-compose](https://docs.docker.com/compose/install/)
+* [Docker with docker compose]([https://docs.docker.com/engine/install/])
 
 ## The Simplest Method
 
@@ -40,7 +39,7 @@ If you have a Linux machine that already has Docker pre-installed, please just r
 <p class="line">
 <span class="path">~/lancache</span>
 <span class="prompt">$</span>
-<span class="command">docker-compose up -d</span>
+<span class="command">docker compose up -d</span>
 </p>
 <p class="line">
 <span class="output"># => Configure your router to serve ONLY lancache-dns</span>
