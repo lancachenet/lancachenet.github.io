@@ -19,7 +19,7 @@ The basic anatomy of a LAN network consists of the WAN side where you keep your 
 
 ## Adding a Cache
 
-In the basic network above, every time we want to download a game we have to fetch it from the internet on the WAN side and put it on a client PC on the LAN side. If many people want to do this at once they all have to get separate copies. This means it gets downloaded several times, once per PC wanting the game. If you are running an event with 10 identical PCs to show off a game or have hundreds of eager LAN gamers wanting the lastest shiny game of the moment, it can be a lot of strain on your internet. 
+In the basic network above, every time we want to download a game we have to fetch it from the internet on the WAN side and put it on a client PC on the LAN side. If many people want to do this at once they all have to get separate copies. This means it gets downloaded several times, once per PC wanting the game. If you are running an event with 10 identical PCs to show off a game or have hundreds of eager LAN gamers wanting the latest shiny game of the moment, it can be a lot of strain on your internet. 
 
 The purpose of a cache is to allow you to download the game once, crossing from WAN to LAN and then to allow as many clients as you like to grab a copy within your network. This wants to be transparent to the clients, by this we mean they should not need to know that caching is happening in the network and can just use their machine as they normally would. To enable this we must satisfy a few main conditions:
 * DNS Redirection: In order to convince clients to grab the LAN copy, we will have to tell them that the content they are requesting is kept on the cache machine.
