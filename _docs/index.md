@@ -13,7 +13,12 @@ The best and quickest way is to get started with lancache.net is to use the quic
 
 * A modern Linux distribution supporting Docker, eg [Ubuntu](https://www.ubuntu.com) or [CentOS](https://www.centos.org/)
 * [Docker](https://www.docker.com/)
-* [docker-compose](https://docs.docker.com/compose/install/)
+
+<div class="note">
+    <p>
+    	Installing Docker via your package manager may install an unsupported out of date version.  It is recommended to install it via Docker's official install instructions, which can be found <a href="https://docs.docker.com/engine/install/">here</a>
+    </p>
+</div>
 
 ## The Simplest Method
 
@@ -40,7 +45,7 @@ If you have a Linux machine that already has Docker pre-installed, please just r
 <p class="line">
 <span class="path">~/lancache</span>
 <span class="prompt">$</span>
-<span class="command">docker-compose up -d</span>
+<span class="command">docker compose up -d</span>
 </p>
 <p class="line">
 <span class="output"># => Configure your router to serve ONLY lancache-dns</span>
@@ -61,15 +66,15 @@ This should bring up a fully functional LanCache and DNS container, and an SNI P
 ## More Detail
 
 When you edit the .env file most users are going to need to make the following changes:
-* LANCACHE_IP should be set to the ip address that you wish your DNS to hand out for your cache container. In normal operation this would be the ip of the box running your cache.
-* DNS_BIND_IP can be commented out in a simple setup or you can choose the ip address of your dns container (which could be the same as your lancache ip)
-* CACHE_ROOT is where you want to store the cached data. For best practice we recommend a mount point on a separate volume from your OS.
-* CACHE_DISK_SIZE ensure this matches the size of the volume you have the cache root on. Remember to leave some space available. The size should be in either megabytes (suffix `m`) or gigabytes (suffix `g`). (For very large sizes you should understand what CACHE_INDEX_SIZE does)
+* `LANCACHE_IP` should be set to the ip address that you wish your DNS to hand out for your cache container. In normal operation this would be the ip of the box running your cache.
+* `DNS_BIND_IP` can be commented out in a simple setup or you can choose the ip address of your dns container (which could be the same as your lancache ip)
+* `CACHE_ROOT` is where you want to store the cached data. For best practice we recommend a mount point on a separate volume from your OS.
+* `CACHE_DISK_SIZE` ensure this matches the size of the volume you have the cache root on. The cache will try to keep around 100g free space, but you may want to pick an appropriate size that leaves some space available for other data. The size should be in gigabytes (suffix `g`) or terabytes (suffix `t`). (For very large sizes you should understand what `CACHE_INDEX_SIZE` does)
 
 <div class="note info">
 	<h5>Common Issues</h5>
     <p>
-    	Be sure to check the <a href="/docs/common-issues/">common issues</a> page if you have any problems setting up your server.    
+    	Be sure to check the <a href="/docs/common-issues/">common issues</a> page if you have any problems setting up your server.
     </p>
 </div>
 
@@ -78,4 +83,3 @@ If you want to play with advanced installation and further configuration options
 
 * [docker-compose](/docs/installation/docker-compose/)
 * [Manual docker](/docs/installation/docker/)
-{% comment %}* [Step by step](/docs/step-by-step/01-setup/) {% endcomment %}

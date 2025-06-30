@@ -13,7 +13,7 @@ permalink: /docs/upgrading/
 
 ## Minor Updates
 
-If you followed our setup recommendations and installed via [docker-compose](/docs/installation/docker-compose), run `docker-compose pull` to update the containers and then `docker-compose up -d` to update to the latest versions.
+If you followed our setup recommendations and installed via [docker compose](/docs/installation/docker-compose), run `docker compose pull` to update the containers and then `docker compose up -d` to update to the latest versions.
 
 If you are using docker directly you will need to destroy and recreate your containers after repulling the latest image {% comment %}(See [docker-101](/docs/docker-101)) {% endcomment %}.
 
