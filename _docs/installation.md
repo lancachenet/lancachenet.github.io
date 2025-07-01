@@ -23,5 +23,5 @@ The best and quickest way is to get started with lancache.net is to use the [qui
 
 For detailed install instructions have a look at the guide for your operating system.
 
-* [docker-compose](/docs/installation/docker-compose/)
+* [Docker Compose](/docs/installation/docker-compose/)
 * [Manual docker](/docs/installation/docker/)

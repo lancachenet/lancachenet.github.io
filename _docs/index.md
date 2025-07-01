@@ -65,11 +65,11 @@ This should bring up a fully functional LanCache and DNS container, and an SNI P
 
 ## More Detail
 
-When you edit the .env file most users are going to need to make the following changes:
+When you edit the `.env` file most users are going to need to make the following changes:
 * `LANCACHE_IP` should be set to the ip address that you wish your DNS to hand out for your cache container. In normal operation this would be the ip of the box running your cache.
 * `DNS_BIND_IP` can be commented out in a simple setup or you can choose the ip address of your dns container (which could be the same as your lancache ip)
 * `CACHE_ROOT` is where you want to store the cached data. For best practice we recommend a mount point on a separate volume from your OS.
-* `CACHE_DISK_SIZE` ensure this matches the size of the volume you have the cache root on. The cache will try to keep around 100g free space, but you may want to pick an appropriate size that leaves some space available for other data. The size should be in gigabytes (suffix `g`) or terabytes (suffix `t`). (For very large sizes you should understand what `CACHE_INDEX_SIZE` does)
+* `CACHE_DISK_SIZE` ensure this matches the size of the volume you have the cache root on. The cache will try to keep around `10g` free space (see `MIN_DISK_FREE`), but you may want to pick an appropriate size that leaves some space available for other data. The size should be in gigabytes (suffix `g`) or terabytes (suffix `t`). (For very large sizes you should understand what `CACHE_INDEX_SIZE` does)
 
 <div class="note info">
 	<h5>Common Issues</h5>

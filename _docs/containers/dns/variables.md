@@ -15,7 +15,7 @@ Changing environment variables in docker requires you to delete and recreate you
    </p>
 </div>
 
-If you are using docker compose these variables can be changed by editing the .env file provided. If a specific variable does not exist in your version of the .env just add a new line.
+If you are using `docker compose` these variables can be changed by editing the `.env` file provided. If a specific variable does not exist in your version of the `.env` just add a new line.
 
 If you are using docker from the command line environment variables are specified using `-e VARIABLE=VALUE` format when you launch the container.
 
