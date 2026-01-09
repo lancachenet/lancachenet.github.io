@@ -29,7 +29,7 @@ These slow downloads are due to how Battle.net poorly interacts with Lancache, a
 
 As a workaround, [battlenet-lancache-prefill](https://github.com/tpill90/battlenet-lancache-prefill) can be used to prime Battle.net games at full speed, , enabling subsequent downloads to be retrieved from the Lancache.
 
-## Unraid Port Bindings
+## Unraid Port Bindings & Cache Pool
 
 Unraid provides network storage, virtual machines and docker functionality and on the face of it seems a great platform for running up your Lancache. However people often run into problems with ports. To use Lancache you need to have unchallenged access to:
 * Port 80: where HTTP content is requested.
@@ -37,6 +37,8 @@ Unraid provides network storage, virtual machines and docker functionality and o
 * Port 53: so that DNS requests can be directed.
 
 These are usually in heavy rotation by the Unraid UI. While some users have managed to add another IP and move some services around there is an easier way. Simply run up an Ubuntu VM on Unraid. You can assign an uncontested IP to your VM with ease and now you are on the "happy path" for install. Use the Separation of Concerns principle and put your caching all inside one easy to operate wrapped up VM of its own.
+
+Additionally, you should not use Unraid's shared cache pool as Lanaches's storage as Unraid treats it's cache pool in a particular way which can cause issues like 99% complete downloads and more. Instead, setup a separate drive pool for use by Lancache.
 
 ## Slow Download Speeds
 
